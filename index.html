@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link type="text/css" rel="stylesheet" href="css/lib/lightGallery.css" />
+    <link type="text/css" rel="stylesheet" href="css/lib/CSS3Lightbox.css" />
+
+    <link type="text/css" rel="stylesheet" href="js/widget/gallery/gallery.css" />
+    <link type="text/css" rel="stylesheet" href="js/page/home/home.css" />
+
+    <script src="js/lib/jquery-1.10.2.js"></script>
+    <script src="js/lib/jquery-1.10.2.js"></script>
+	<script src="js/lib/sea-debug.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script src="js/lib/json2.js"></script>
+    <script src="js/lib/jquery.channel.js"></script>
+    <script src="js/lib/lightGallery.js"></script>
+
+    <script src="js/core/class.js"></script>
+
+    <script src="js/core/mvc/model.js"></script>
+    <script src="js/core/mvc/collection.js"></script>
+    <script src="js/core/mvc/view.js"></script>
+
+    <script src="js/topic/topic_center.js"></script>
+    <script src="js/config/config.js"></script>
+    <script src="js/util/util.js"></script>
+    <script src="js/core/ajax.js"></script>
+    <script src="js/service/service.js"></script>
+
+    <script src="js/gen/template.js"></script>
+
+    <script src="js/core/router.js"></script>
+    <script src="js/core/history.js"></script>
+
+    <script src="js/widget/gallery/model.js"></script>
+    <script src="js/widget/gallery/collection.js"></script>
+    <script src="js/widget/gallery/view.js"></script>
+    <script src="js/widget/gallery/gallery.js"></script>
+
+    <script src="js/widget/popup/picture/picture.js"></script>
+    <script src="js/widget/popup/acticle/acticle.js"></script>
+    <script src="js/widget/popup/book/book.js"></script>
+
+    <script src="js/page/takagism/model.js"></script>
+    <script src="js/page/takagism/collection.js"></script>
+    <script src="js/page/takagism/view.js"></script>
+    <script src="js/page/takagism/takagism_router.js"></script>
+    <script src="js/page/takagism/takagism.js"></script>
+
+    <script src="js/page/home/model.js"></script>
+    <script src="js/page/home/collection.js"></script>
+    <script src="js/page/home/view.js"></script>
+    <script src="js/page/home/home.js"></script>
+
+
+    <!-- Test Data -->
+    <script src="js/test_data/home_data.js"></script>
+
+</head>
+
+<body>
+<div>
+    <div class="j-left-content left-content"></div>
+    <div class="j-right-content right-content"></div>
+</div>
+<script>
+seajs.use("page/takagism/takagism", function(takagism) {
+    takagism.start();
+});
+</script>
+</body>
+</html>

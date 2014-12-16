@@ -1,0 +1,2 @@
+/*TMODJS:{"version":2,"md5":"8422b2d23a01d2bf5c05108389fc5519"}*/
+template('tpl_taskagism','<div> <ul> <li><a href="#home">首页</a></li> <li><a href="#subject">主题介绍</a></li> <li><a href="#art">艺术休闲吧</a></li> <li><a href="#commonweal">筑梦公益墙</a></li> <li><a href="#summary">公司简介</a></li> <li><a href="#comment">联系我们</a></li> </ul> </div>');

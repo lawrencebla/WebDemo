@@ -1,0 +1,15 @@
+<%
+if(info && info.length) {
+    for(var i = 0; i < info.length; i++) {
+        var e = info[i];
+%>
+<li data-src="<%=e.largeImgPath%>">
+    <a href="javascript:void(0)" data-id="<%=e.id%>">
+        <img src="<%=e.smallImgPath%>"/>
+        <span><%=e.name%></span>
+    </a>
+</li>
+<%
+    }
+}
+%>
