@@ -18,7 +18,7 @@
                 speed: 600,
                 addClass: '',
 
-                closable: true,
+                closable: false,
                 loop: false,
                 auto: false,
                 pause: 4000,
@@ -39,7 +39,7 @@
                 exThumbImage: false,
                 thumbnail: true,
                 showThumbByDefault:false,
-                animateThumb: true,
+                animateThumb: false,
                 currentPagerPosition: 'middle',
                 thumbWidth: 100,
                 thumbMargin: 5,
@@ -93,7 +93,7 @@
                         } else {
                             $children = $this.children();
                         }
-                        $children.on('click', function(e) {
+                        $children.off('click.gallery').on('click.gallery', function(e) {
                             if (settings.selector !== null) {
                                 $children = $(settings.selector);
                             } else {
@@ -333,7 +333,7 @@
             loadContent: function(index, rec) {
                 var $this = this;
                 var i, j, l = $children.length - index;
-                var src;
+                var src, target;
 
                 if (settings.preload > $children.length) {
                     settings.preload = $children.length;
@@ -341,14 +341,18 @@
                 if (settings.mobileSrc === true && windowWidth <= settings.mobileSrcMaxWidth) {
                     if (settings.dynamic) {
                         src = settings.dynamicEl[index].mobileSrc;
+                        target = settings.dynamicEl[index];
                     } else {
                         src = $children.eq(index).attr('data-responsive-src');
+                        target = $children.eq(index);
                     }
                 } else {
                     if (settings.dynamic) {
                         src = settings.dynamicEl[index].src;
+                        target = settings.dynamicEl[index];
                     } else {
                         src = $children.eq(index).attr('data-src');
+                        target = $children.eq(index);
                     }
                 }
                 var time = 0;
@@ -356,14 +360,15 @@
                     time = settings.speed + 400;
                 }
 
-
-
-
                 if (typeof src !== 'undefined' && src !== '') {
                     if (!$this.isVideo(src, index)) {
                         setTimeout(function() {
                             if (!$slide.eq(index).hasClass('loaded')) {
-                                $slide.eq(index).prepend('<img class="object" src="' + src + '" />');
+                                if(settings.templateCallback && $.isFunction(settings.templateCallback)) {
+                                    $slide.eq(index).prepend(settings.templateCallback(target));
+                                } else {
+                                    $slide.eq(index).prepend('<img class="object" src="' + src + '" />');
+                                }
                                 $this.addHtml(index);
                                 $slide.eq(index).addClass('loaded');
                             }
@@ -431,11 +436,11 @@
                     }
                     $gallery.append('<div class="thumb_cont"><div class="thumb_info">'+$close+'</div><div class="thumb_inner"></div></div>');
                     $thumb_cont = $gallery.find('.thumb_cont');
-                    if(settings.controls) {
+                    /*if(settings.controls) {
                         $prev.after('<a class="cLthumb"></a>');
                         $prev.parent().addClass('hasThumb');
-                    }
-                    $gallery.find('.cLthumb').bind('click touchend', function() {
+                    }*/
+                    /*$gallery.find('.cLthumb').bind('click touchend', function() {
                         $gallery.addClass('open');
                         if ($this.doCss() && settings.mode === 'slide') {
                             $slide.eq(index).prevAll().removeClass('nextSlide').addClass('prevSlide');
@@ -444,7 +449,7 @@
                     });
                     $gallery.find('.thumb_cont .close').bind('click touchend', function() {
                         $gallery.removeClass('open');
-                    });
+                    });*/
                     var thumbInfo = $gallery.find('.thumb_info');
                     var $thumb_inner = $gallery.find('.thumb_inner');
                     var thumbList = '';
@@ -527,10 +532,11 @@
             slideTo: function() {
                 var $this = this;
                 if (settings.controls === true && $children.length > 1) {
-                    $gallery.append('<div id="lightGallery-action"><a id="lightGallery-prev"></a><a id="lightGallery-next"></a></div>');
+                    $gallery.prepend('<a id="lightGallery-prev"></a>').append('<a id="lightGallery-next"></a>');
                     $prev = $gallery.find('#lightGallery-prev');
                     $next = $gallery.find('#lightGallery-next');
                     $prev.bind('click', function() {
+                        alert("");
                         $this.prevSlide();
                         clearInterval(interval);
                     });

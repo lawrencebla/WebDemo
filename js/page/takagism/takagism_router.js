@@ -3,20 +3,24 @@
     var router = require("core/router");
 
     var home = require("page/home/home");
+    var art = require("page/art/art");
+    var commonweal = require("page/commonweal/commonweal");
+    var summary = require("page/summary/summary");
+    var comment = require("page/comment/comment");
 
     module.exports = router.extend({
         routes: {
             "": "indexRoute",
-            "home": "indexRoute",
-            "subject": "subjectRoute",
-            "art": "artRoute",
-            "commonweal": "commonwealRoute",
-            "summary": "summaryRoute",
-            "comment": "commentRoute"
+            "home_page": "indexRoute",
+            "subject_page": "subjectRoute",
+            "art_page": "artRoute",
+            "commonweal_page": "commonwealRoute",
+            "summary_page": "summaryRoute",
+            "comment_page": "commentRoute"
         },
 
         indexRoute: function(actions) {
-            new home($(".j-right-content")).render();
+            new home($(".j-home-content")).render();
         },
 
         subjectRoute: function(actions) {
@@ -24,19 +28,20 @@
         },
 
         artRoute: function(actions) {
-            alert("artRoute");
+            new art($(".j-art-content")).render();
         },
 
         commonwealRoute: function(actions) {
-            alert("commonwealRoute");
+            new commonweal($(".j-commonweal-content")).render();
         },
 
         summaryRoute: function(actions) {
-            alert("summaryRoute");
+            new summary($(".j-summary-content")).render();
+            //new home($(".j-right-content")).render();
         },
 
         commentRoute: function(actions) {
-            alert("commentRoute");
+            new comment($(".j-comment-content")).render();
         }
     });
 });

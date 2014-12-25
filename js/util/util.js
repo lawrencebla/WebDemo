@@ -44,6 +44,13 @@
                     data: resultData,
                     params: params
                 };
+            },
+
+            getDate: function(date) {
+                if(arguments.length == 0) {
+                    date = new Date();
+                }
+                return date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate();
             }
         };
     })();

@@ -6,6 +6,7 @@
     module.exports = (function() {
 
         var topics = {
+            /* Home Topic */
             getHomeDataTodo: "get/home/data/todo",
             getHomeDataDoing: "get/home/data/doing",
             getHomeDataDone: "get/home/data/done",
@@ -14,7 +15,43 @@
             loadHomeDataTodo: "load/home/data/todo",
             loadHomeDataDoing: "load/home/data/doing",
             loadHomeDataDone: "load/home/data/done",
-            loadHomeDataError: "load/home/data/error"
+            loadHomeDataError: "load/home/data/error",
+
+            /* Art Topic */
+            getArtDataTodo: "get/art/data/todo",
+            getArtDataDoing: "get/art/data/doing",
+            getArtDataDone: "get/art/data/done",
+            getArtDataError: "get/art/data/error",
+
+            loadArtDataTodo: "load/art/data/todo",
+            loadArtDataDoing: "load/art/data/doing",
+            loadArtDataDone: "load/art/data/done",
+            loadArtDataError: "load/art/data/error",
+
+            /* Commonweal Topic */
+            getCommonwealDataTodo: "get/commonweal/data/todo",
+            getCommonwealDataDoing: "get/commonweal/data/doing",
+            getCommonwealDataDone: "get/commonweal/data/done",
+            getCommonwealDataError: "get/commonweal/data/error",
+
+            loadCommonwealDataTodo: "load/commonweal/data/todo",
+            loadCommonwealDataDoing: "load/commonweal/data/doing",
+            loadCommonwealDataDone: "load/commonweal/data/done",
+            loadCommonwealDataError: "load/commonweal/data/error",
+
+            /* Comment Topic */
+            getCommentDataTodo: "get/comment/data/todo",
+            getCommentDataDoing: "get/comment/data/doing",
+            getCommentDataDone: "get/comment/data/done",
+            getCommentDataError: "get/comment/data/error",
+
+            loadCommentDataTodo: "load/comment/data/todo",
+            loadCommentDataDoing: "load/comment/data/doing",
+            loadCommentDataDone: "load/comment/data/done",
+            loadCommentDataError: "load/comment/data/error",
+
+            postCommentTodo: "post/comment/todo"
+
         };
 
         var mappingTopicFlow = function() {
@@ -24,6 +61,30 @@
             });
             subscribe.loadHomeDataDone(function(data) {
                 publish.getHomeDataDone(util.decodingTopicData(data));
+            });
+
+            // Art Page
+            subscribe.getArtDataTodo(function(data) {
+                publish.loadArtDataTodo(util.decodingTopicData(data));
+            });
+            subscribe.loadArtDataDone(function(data) {
+                publish.getArtDataDone(util.decodingTopicData(data));
+            });
+
+            // Commonweal Page
+            subscribe.getCommonwealDataTodo(function(data) {
+                publish.loadCommonwealDataTodo(util.decodingTopicData(data));
+            });
+            subscribe.loadCommonwealDataDone(function(data) {
+                publish.getCommonwealDataDone(util.decodingTopicData(data));
+            });
+
+            // Comment Page
+            subscribe.getCommentDataTodo(function(data) {
+                publish.loadCommentDataTodo(util.decodingTopicData(data));
+            });
+            subscribe.loadCommentDataDone(function(data) {
+                publish.getCommentDataDone(util.decodingTopicData(data));
             });
         }
 

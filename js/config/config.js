@@ -3,7 +3,11 @@
     module.exports = (function() {
         return {
             apiPath: {
-                loadHomeData: "home/data"
+                loadHomeData: "home/data",
+                loadArtData: "art/data",
+                loadCommonwealData: "commonweal/data",
+                loadCommentData: "comment/data",
+                postComment: "comment/post"
             }
         };
     })();

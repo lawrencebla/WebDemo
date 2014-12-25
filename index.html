@@ -5,18 +5,23 @@
 
     <link type="text/css" rel="stylesheet" href="css/lib/lightGallery.css" />
     <link type="text/css" rel="stylesheet" href="css/lib/CSS3Lightbox.css" />
+    <link type="text/css" rel="stylesheet" href="css/lib/jquery-ui.css" />
 
     <link type="text/css" rel="stylesheet" href="js/widget/gallery/gallery.css" />
+
     <link type="text/css" rel="stylesheet" href="js/page/home/home.css" />
+    <link type="text/css" rel="stylesheet" href="js/page/summary/summary.css" />
+    <link type="text/css" rel="stylesheet" href="js/page/comment/comment.css" />
 
     <script src="js/lib/jquery-1.10.2.js"></script>
-    <script src="js/lib/jquery-1.10.2.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
 	<script src="js/lib/sea-debug.js"></script>
     <script src="js/lib/underscore.js"></script>
     <script src="js/lib/backbone.js"></script>
     <script src="js/lib/json2.js"></script>
     <script src="js/lib/jquery.channel.js"></script>
-    <script src="js/lib/lightGallery.js"></script>
+    <script src="js/lib/jquery.slimscroll.js"></script>
+    <script src="js/lib/lightGallery.custom.js"></script>
 
     <script src="js/core/class.js"></script>
 
@@ -55,16 +60,36 @@
     <script src="js/page/home/view.js"></script>
     <script src="js/page/home/home.js"></script>
 
+    <script src="js/page/art/model.js"></script>
+    <script src="js/page/art/collection.js"></script>
+    <script src="js/page/art/view.js"></script>
+    <script src="js/page/art/art.js"></script>
+
+    <script src="js/page/commonweal/model.js"></script>
+    <script src="js/page/commonweal/collection.js"></script>
+    <script src="js/page/commonweal/view.js"></script>
+    <script src="js/page/commonweal/commonweal.js"></script>
+
+    <script src="js/page/summary/model.js"></script>
+    <script src="js/page/summary/collection.js"></script>
+    <script src="js/page/summary/view.js"></script>
+    <script src="js/page/summary/summary.js"></script>
+
+    <script src="js/page/comment/model.js"></script>
+    <script src="js/page/comment/collection.js"></script>
+    <script src="js/page/comment/view.js"></script>
+    <script src="js/page/comment/comment.js"></script>
 
     <!-- Test Data -->
     <script src="js/test_data/home_data.js"></script>
+    <script src="js/test_data/art_data.js"></script>
+    <script src="js/test_data/commonweal_data.js"></script>
+    <script src="js/test_data/comment_data.js"></script>
 
 </head>
 
 <body>
-<div>
-    <div class="j-left-content left-content"></div>
-    <div class="j-right-content right-content"></div>
+<div class="j-takagism-wrapper">
 </div>
 <script>
 seajs.use("page/takagism/takagism", function(takagism) {

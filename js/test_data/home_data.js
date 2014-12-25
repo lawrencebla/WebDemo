@@ -12,7 +12,11 @@
                 id: "2",
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
-                largeImgPath: "js/test_data/img/o.jpg"
+                largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content"
             },
             {
                 id: "3",

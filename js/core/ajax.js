@@ -30,7 +30,12 @@
         });
 
     } else {
-        successCallback(require("test_data/" + url));
+        //try {
+            successCallback(require("test_data/" + url));
+        //} catch(e) {
+        //    console.log(e);
+            //console.log("have not test data: " + url);
+        //}
     }
 
     };

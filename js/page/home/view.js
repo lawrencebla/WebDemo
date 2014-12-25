@@ -6,10 +6,12 @@
     var util = require("util/util");
 
     var gallery = require("widget/gallery/gallery");
+    var picturePop = require("widget/popup/picture/picture");
 
     module.exports = view.extend({
         render: function() {
             this.flowController();
+            //this.$el.html("adf");
         },
 
         flowController: function() {
@@ -37,6 +39,8 @@
 
         showData: function(data) {
             new gallery(this.$el, {galleryClass: "home-gallery"}).render(data);
+            var options = {};
+            new picturePop(this.$el.find(".home-gallery"), options);
             //this.$el.html(this.template(this.tpl.tpl_home_content, data));
             //console.log(data);
         },

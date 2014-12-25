@@ -8,7 +8,7 @@
     module.exports =  {
         start: function() {
             service.start();
-            new view({el: $(".j-left-content")});
+            new view({el: $(".j-takagism-wrapper")});
             history.start();
         }
     }

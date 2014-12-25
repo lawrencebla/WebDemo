@@ -1,0 +1,32 @@
+@keyframes scrollscreen {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, -100%, 0);
+    }
+}
+@-webkit-keyframes scrollscreen {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, -100%, 0);
+    }
+}
+
+.summary-animation-scroll-wrapper {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.summary-animation-scroll {
+    padding-top: 100%;
+    -webkit-animation: scrollscreen 10s linear 0s infinite;
+    animation: scrollscreen 10s linear 0s infinite;
+}
+
+.summary-animation-scroll:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}

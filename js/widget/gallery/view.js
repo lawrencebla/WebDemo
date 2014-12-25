@@ -14,15 +14,16 @@
                 data.galleryClass = this.galleryClass;
             }
             this.$el.html(this.template(this.tpl.tpl_gallery_wrapper, data));
-
+/*
             var options = {
                 //addClass: "custom-gallery",
                 //controls: false
             };
             if(this.galleryClass) {
-                new bookPop($("." + this.galleryClass), options);
+                new picturePop($("." + this.galleryClass), options);
                 //this.$el.find("." + this.galleryClass).lightGallery(options);
             }
+            */
         }
     });
 

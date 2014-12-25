@@ -5,7 +5,7 @@
     var view = require("page/home/view");
 
     module.exports = function(dom) {
-        var m = model;
+        var m = new model();
         var c = new collection({model: m});
         var v = new view({collection: c, el: dom, model: m});
 
