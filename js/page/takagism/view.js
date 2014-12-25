@@ -4,10 +4,6 @@
 
     var TakagismRouter = require("page/takagism/takagism_router");
 
-    var cache = {
-        tab: {}
-    };
-
     module.exports = View.extend({
         tpl: "tpl_taskagism",
         initialize: function() {
@@ -20,10 +16,11 @@
                 ui.panel = ui.newPanel;
             }
             var id = ui.panel.attr("id");
-            if(!cache.tab[id]) {
+            window.location.hash = id + "_page";
+            /*if(!cache.tab[id]) {
                 cache.tab[id] = true;
                 window.location.hash = id + "_page";
-            }
+            }*/
         },
 
         render: function() {

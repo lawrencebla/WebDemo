@@ -8,6 +8,10 @@
     var summary = require("page/summary/summary");
     var comment = require("page/comment/comment");
 
+    var cache = {
+        tab: {}
+    };
+
     module.exports = router.extend({
         routes: {
             "": "indexRoute",
@@ -20,28 +24,45 @@
         },
 
         indexRoute: function(actions) {
-            new home($(".j-home-content")).render();
+            if(!cache.tab["home"]) {
+                new home($(".j-home-content")).render();
+                cache.tab["home"] = true;
+            }
         },
 
         subjectRoute: function(actions) {
-            alert("subjectRoute");
+            if(!cache.tab["subject"]) {
+                alert("subjectRoute");
+                cache.tab["subject"] = true;
+            }
         },
 
         artRoute: function(actions) {
-            new art($(".j-art-content")).render();
+            if(!cache.tab["art"]) {
+                new art($(".j-art-content")).render();
+                cache.tab["art"] = true;
+            }
         },
 
         commonwealRoute: function(actions) {
-            new commonweal($(".j-commonweal-content")).render();
+            if(!cache.tab["commonweal"]) {
+                new commonweal($(".j-commonweal-content")).render();
+                cache.tab["commonweal"] = true;
+            }
         },
 
         summaryRoute: function(actions) {
-            new summary($(".j-summary-content")).render();
-            //new home($(".j-right-content")).render();
+            if(!cache.tab["summary"]) {
+                new summary($(".j-summary-content")).render();
+                cache.tab["summary"] = true;
+            }
         },
 
         commentRoute: function(actions) {
-            new comment($(".j-comment-content")).render();
+            if(!cache.tab["comment"]) {
+                new comment($(".j-comment-content")).render();
+                cache.tab["comment"] = true;
+            }
         }
     });
 });
