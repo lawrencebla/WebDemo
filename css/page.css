@@ -18,48 +18,94 @@
 	align-items: center;
 	}
 .book-wrapper{
-	position: relative;
 	-webkit-box-flex: 1;
 	flex: 1;
 	padding: 24px;
 	display: -webkit-box;
 	display: flex;
 	background:url("../js/images/smmc-book.jpg") no-repeat 0 0 / 100% 100%;
-	-webkit-perspective: 900px;
 }
 .book-wrapper .page-content{
-	position: absolute;
-	left: 50%;
-	top: 2%;
-	bottom:2%;
-	height: 100%;
-	width: 48%;
-	text-align: center;
-	-webkit-transform-style: preserve-3d;
+	display:none;
+	-webkit-box-flex: 1;
+	flex: 1;
+	position: relative;
+	-webkit-perspective: 900px;
 	-webkit-transform-origin: 0 50%;
 	-webkit-transition: -webkit-transform 5s ease-in .1s;
 }
-.page-back{
-	border-radius: 10px 0 0 10px;
-	z-index: 0;
-	-webkit-transform: rotateY(180deg);
-	background:#f5f5f5;
-}
-.page-font{
-	border-radius: 0 10px 10px 0;
-	z-index: 1;
-	background:#f5f5f5;
-}
-.page-font,.page-back{
+.page-left::before,.page-right::before {
+	content: '';
+	z-index: -1;
 	position: absolute;
-	left: 0;
+	left: -24px;
+	top: -24px;
 	right: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	-webkit-backface-visibility: hidden;
+	bottom: -24px;
+	background: #000 url("../js/images/smmc-book.jpg") no-repeat 0 0 / 200% 100%;
 }
-.page-content:hover{
+.page-right::before{
+	left: 0;
+	right: -24px;
+	background-position: right;
+	}
+.book-wrapper .right-active{
+	display:block;
+}
+.book-wrapper .left-active{
+	display:block;
+}
+.book-wrapper .old{
+	display:block;
+}
+.book-wrapper .new .page-left{
+	-webkit-transform: rotateY(180deg);
+}
+.right-active.old .page-right{
 	-webkit-transform: rotateY(-180deg);
 }
-
+.right-active.new .page-left{
+	-webkit-transform: rotateY(0);
+}
+.left-active.old .page-left{
+	-webkit-transform: rotateY(180deg);
+}
+.page-right{
+	right: 0;
+	-webkit-transform-origin: left;
+	transform-origin: left;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	display: flex;
+	flex-direction: column;
+}
+.page-left{
+	left: 0;
+	-webkit-transform-origin: right;
+	transform-origin: right;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.page-right,.page-left{
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	overflow: hidden;
+	backface-visibility: hidden;
+	transition: transform 1.2s;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 1.2s;
+}
+.current-page .left {
+    -webkit-transform: rotateY(0deg);
+}
+.current-page .right {
+    -webkit-transform: rotateY(0deg);
+}
+.next-page .left {
+    -webkit-transform: rotateY(180deg);
+}		        
