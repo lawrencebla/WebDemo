@@ -11,7 +11,6 @@
     module.exports = view.extend({
         render: function() {
             this.flowController();
-            //this.$el.html("adf");
         },
 
         flowController: function() {
@@ -43,11 +42,8 @@
             new picturePop(this.$el.find(".home-gallery"), options);
             this.$el.mCustomScrollbar({
                 axis: "x",
-                setHeight: 400,
                 advanced:{autoExpandHorizontalScroll:true}
             });
-            //this.$el.html(this.template(this.tpl.tpl_home_content, data));
-            //console.log(data);
         },
         showMsg: function() {
             //console.log("showMsg");
