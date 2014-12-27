@@ -8,7 +8,14 @@
     var gallery = require("widget/gallery/gallery");
     var acticle = require("widget/popup/acticle/acticle");
 
+    var cache = {
+        tab: {}
+    };
+
     module.exports = view.extend({
+        tpl: {
+            tpl_commonweal: "tpl_commonweal"
+        },
         render: function() {
             this.flowController();
         },
@@ -23,7 +30,7 @@
                 data = options.data;
 
                 if(util.hasInfoData(data)) {
-                    self.showData(data);
+                    self.showData(data, params);
                 } else {
                     self.showMsg();
                 }
@@ -33,11 +40,26 @@
                 self.showError();
             });
 
-            topic_center.publish.getCommonwealDataTodo({actionType: "init"});
+            this.$el.html(this.template(this.tpl.tpl_commonweal));
+            this.$el.tabs({
+                create: this.activateTab,
+                activate: this.activateTab
+            });
         },
 
-        showData: function(data) {
-            new gallery(this.$el, {galleryClass: "commonweal-gallery"}).render(data);
+        activateTab: function(event, ui) {
+            if(ui.newPanel) {
+                ui.panel = ui.newPanel;
+            }
+            var id = ui.panel.attr("id");
+            if(!cache.tab[id]) {
+                cache.tab[id] = true;
+                topic_center.publish.getCommonwealDataTodo({actionType: "init", tabId: id});
+            }
+        },
+
+        showData: function(data, params) {
+            new gallery(this.$el.find("#" + params.tabId), {galleryClass: "commonweal-gallery"}).start(data);
             var options = {};
             new acticle(this.$el.find(".commonweal-gallery"), options);
         },

@@ -78,6 +78,8 @@
     }, "function" == typeof define ? define("gen/template", function() {
         return template;
     }) : "undefined" != typeof exports ? module.exports = template : this.template = template, 
+    /*v:1*/
+    template("tpl_art", '<ul> <li><a href="#arder">休闲娱乐区</a></li> <li><a href="#artwork">艺术品展示</a></li> </ul> <div id="arder" class="j-arder-content"> </div> <div id="artwork" class="j-artwork-content"> </div>'), 
     /*v:2*/
     template("tpl_comment", function($data, $filename) {
         "use strict";
@@ -96,19 +98,22 @@
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), content = $data.content, date = $data.date, $out = "";
         return $out += "<li> <span>玩家：</span>", $out += $escape(content), $out += " <span>", 
         $out += $escape(date), $out += "</span> </li>", new String($out);
-    }), /*v:6*/
+    }), /*v:1*/
+    template("tpl_commonweal", '<ul> <li><a href="#weal_doing">火热逐梦中</a></li> <li><a href="#weal_done">艺术品展示</a></li> </ul> <div id="weal_doing" class="j-weal-doing-content"> </div> <div id="weal_done" class="j-weal-done-content"> </div>'), 
+    /*v:7*/
     template("tpl_gallery_list", function($data) {
         "use strict";
         var $utils = this, info = ($utils.$helpers, $data.info), i = $data.i, e = $data.e, $escape = $utils.$escape, $out = "";
         if (info && info.length) for (var i = 0; i < info.length; i++) {
             var e = info[i];
-            e.commonwealDone === !1 && (e.attach = "(逐梦中)"), $out += ' <li data-src="', $out += $escape(e.largeImgPath), 
-            $out += '" data-name="', $out += $escape(e.name), $out += '" data-level="', $out += $escape(e.level), 
-            $out += '" data-plot="', $out += $escape(e.plot), $out += '" data-interest="', $out += $escape(e.interest), 
-            $out += '" data-content="', $out += $escape(e.content), $out += '" data-commonweal-done="', 
-            $out += $escape(e.commonwealDone), $out += '"> <a href="javascript:void(0)" data-id="', 
-            $out += $escape(e.id), $out += '"> <img src="', $out += $escape(e.smallImgPath), 
-            $out += '"/> <span> ', $out += $escape(e.name), $out += $escape(e.attach), $out += " </span> </a> </li> ";
+            e.commonwealDone === !1 && (e.attach = "(逐梦中)"), $out += ' <li class="j-gallery-item" data-src="', 
+            $out += $escape(e.largeImgPath), $out += '" data-name="', $out += $escape(e.name), 
+            $out += '" data-level="', $out += $escape(e.level), $out += '" data-plot="', $out += $escape(e.plot), 
+            $out += '" data-interest="', $out += $escape(e.interest), $out += '" data-content="', 
+            $out += $escape(e.content), $out += '" data-commonweal-done="', $out += $escape(e.commonwealDone), 
+            $out += '"> <a href="javascript:void(0)" data-id="', $out += $escape(e.id), $out += '"> <img src="', 
+            $out += $escape(e.smallImgPath), $out += '"/> <span> ', $out += $escape(e.name), 
+            $out += $escape(e.attach), $out += " </span> </a> </li> ";
         }
         return new String($out);
     }), /*v:4*/
