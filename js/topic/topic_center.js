@@ -17,6 +17,17 @@
             loadHomeDataDone: "load/home/data/done",
             loadHomeDataError: "load/home/data/error",
 
+            /* Subject Topic */
+            getSubjectDataTodo: "get/subject/data/todo",
+            getSubjectDataDoing: "get/subject/data/doing",
+            getSubjectDataDone: "get/subject/data/done",
+            getSubjectDataError: "get/subject/data/error",
+
+            loadSubjectDataTodo: "load/subject/data/todo",
+            loadSubjectDataDoing: "load/subject/data/doing",
+            loadSubjectDataDone: "load/subject/data/done",
+            loadSubjectDataError: "load/subject/data/error",
+
             /* Art Topic */
             getArtDataTodo: "get/art/data/todo",
             getArtDataDoing: "get/art/data/doing",
@@ -61,6 +72,14 @@
             });
             subscribe.loadHomeDataDone(function(data) {
                 publish.getHomeDataDone(util.decodingTopicData(data));
+            });
+
+            // Subject Page
+            subscribe.getSubjectDataTodo(function(data) {
+                publish.loadSubjectDataTodo(util.decodingTopicData(data));
+            });
+            subscribe.loadSubjectDataDone(function(data) {
+                publish.getSubjectDataDone(util.decodingTopicData(data));
             });
 
             // Art Page

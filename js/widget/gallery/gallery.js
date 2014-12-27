@@ -37,7 +37,7 @@
         var _filter = function(selector) {
             self.children.hide();
             self.children.filter(selector).show();
-            _calcItemPosition();
+            _calcItemPosition(_getRowsNum());
         };
 
         // 获取模块列数

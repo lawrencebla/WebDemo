@@ -3,6 +3,7 @@
     var router = require("core/router");
 
     var home = require("page/home/home");
+    var subject = require("page/subject/subject");
     var art = require("page/art/art");
     var commonweal = require("page/commonweal/commonweal");
     var summary = require("page/summary/summary");
@@ -32,7 +33,7 @@
 
         subjectRoute: function(actions) {
             if(!cache.tab["subject"]) {
-                alert("subjectRoute");
+                new subject($(".j-subject-content")).render();
                 cache.tab["subject"] = true;
             }
         },
