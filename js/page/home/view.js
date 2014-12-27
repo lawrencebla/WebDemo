@@ -41,6 +41,11 @@
             new gallery(this.$el, {galleryClass: "home-gallery"}).render(data);
             var options = {};
             new picturePop(this.$el.find(".home-gallery"), options);
+            this.$el.mCustomScrollbar({
+                axis: "x",
+                setHeight: 400,
+                advanced:{autoExpandHorizontalScroll:true}
+            });
             //this.$el.html(this.template(this.tpl.tpl_home_content, data));
             //console.log(data);
         },

@@ -1,10 +1,22 @@
-<div>
-    <%
-    for( var i = 0; i < info.length; i++) {
+<div id="j_home_content">
+    <ul id="test1">
+        <%
+        for( var i = 0; i < info.length; i++) {
+            var e = info[i];
+        %>
+        <li>
+            <div><%=e.name%></div>
+        </li>
+        <% } %>
+    </ul>
+    <ul id="test2">
+        <%
+        for( var i = 0; i < info.length; i++) {
         var e = info[i];
-    %>
-    <li>
-        <div><%=e.name%></div>
-    </li>
-    <% } %>
+        %>
+        <li>
+            <div><%=e.name%></div>
+        </li>
+        <% } %>
+    </ul>
 </div>
