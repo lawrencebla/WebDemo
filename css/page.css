@@ -60,6 +60,6 @@
 	-webkit-backface-visibility: hidden;
 }
 .page-content:hover{
-	//-webkit-transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
 }
 

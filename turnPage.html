@@ -4,32 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="css/page.css" />
     <script src="js/lib/jquery-1.10.2.js"></script>
-    <style>
-        .book-wrapper {
-            -webkit-perspective: 900px;
-        }
-        .page-content {
-            -webkit-transition: -webkit-transform 1.2s;
-        }
-        .page-content .left{
-            -webkit-transform-origin: right;
-        }
-        .page-content .right{
-            -webkit-transform-origin: left;
-        }
-        .previous-page .right {
-            -webkit-transform: rotateY(-180deg);
-        }
-        .current-page .left {
-            -webkit-transform: rotateY(0deg);
-        }
-        .current-page .right {
-            -webkit-transform: rotateY(0deg);
-        }
-        .next-page .left {
-            -webkit-transform: rotateY(180deg);
-        }
-    </style>
 </head>
 
 <body>
@@ -38,46 +12,22 @@
 	        <span id="front-page-button" class="button" title="next">Front Page</span>
 	    </div>
 	    <div class="book-wrapper">
-            <div class="page-content current-page">
-                <div class="left">
-                    first left page
-                </div>
-                <div class="right">
-                    first right page
-                </div>
-            </div>
-            <div class="page-content next-page">
-                <div class="left">
-                    second left page
-                </div>
-                <div class="right">
-                    second right page
-                </div>
-            </div>
-            <div class="page-content">
-                <div class="left">
-                    3 left page
-                </div>
-                <div class="right">
-                    3 right page
-                </div>
-            </div>
-            <div class="page-content">
-                <div class="left">
-                    4 left page
-                </div>
-                <div class="right">
-                    4 right page
-                </div>
-            </div>
-            <div class="page-content">
-                <div class="left">
-                    5 left page
-                </div>
-                <div class="right">
-                    5 right page
-                </div>
-            </div>
+	        <div class="page-content second">
+		        <div class="page-font">
+		        second font page
+		        </div>
+		        <div class="page-back">
+		        second back page
+		        </div>
+	        </div>
+	        <div class="page-content first">
+		        <div class="page-font">
+		        first font page
+		        </div>
+		        <div class="page-back">
+		        first back page
+		        </div>
+	        </div>
 	    </div>
 	    <div class="page-button next-page-button">
 	        <span id="next-page-button" class="button" title="next">Next Page</span>
@@ -85,43 +35,33 @@
 	    <span class="close-button">Close</span>
 	</div>
 <script>
-    var previousClass = "previous-page";
-    var currentClass = "current-page";
-    var nextClass = "next-page";
-    var pageContentClass = "page-content";
-    var pageWrapperClass = "book-wrapper";
-$(".button").click(function() {
-    var currentPage = $("." + currentClass);
-    var nextPage = $("." + nextClass);
-    var previousPage = $("." + previousClass);
+var fontButton = document.getElementById("front-page-button");
+var backButton = document.getElementById("next-page-button");
+
+var buttons = document.getElementsByClassName("button");
+
+function pageTuning(arrow) {
+	alert(arrow);
+} 
+
+var onclickAction = function() {
 	if(this.id == "front-page-button") {
-        if(previousPage.length > 0) {
-            var newPreviousPage = previousPage.prev("." + pageContentClass);
-            if(newPreviousPage.length < 1) {
-                newPreviousPage = previousPage.parent("." + pageWrapperClass).find("." + pageContentClass + ":last-child");
-            }
-            newPreviousPage.addClass(previousClass);
-            previousPage.removeClass(previousClass).addClass(currentClass);
-            currentPage.removeClass(currentClass).addClass(nextClass);
-            nextPage.removeClass(nextClass);
-        } else {
-            alert("Not have previous page.");
-        }
+		alert("left");
 	} else {
-        if(nextPage.length > 0) {
-            var newNextPage = nextPage.next("." + pageContentClass);
-            if(newNextPage.length < 1) {
-                newNextPage = nextPage.parent("." + pageWrapperClass).find("." + pageContentClass + ":first-child");
-            }
-            newNextPage.addClass(nextClass);
-            nextPage.removeClass(nextClass).addClass(currentClass);
-            currentPage.removeClass(currentClass).addClass(previousClass);
-            previousPage.removeClass(previousClass);
-        } else {
-            alert("Not have next page.");
-        }
+		alert("right");
+	}
+};
+
+$(".button").click(function() {
+	if(this.id == "front-page-button") {
+		alert("left");
+	} else {
+		alert("right");
 	}
 });
+
+//fontButton.onclick = onclickAction;
+//backButton.onclick = onclickAction;
 </script>
 </body>
 </html>
