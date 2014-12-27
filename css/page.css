@@ -1,0 +1,65 @@
+.theme-info-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding-left: 256px;
+	background: url('../js/images/wood.jpg');
+}
+.theme-info-container.active{
+	display: -webkit-box;
+	display: flex;
+}
+.theme-info-container .page-button{
+	display: -webkit-box;
+	-webkit-box-align: center;
+	display: flex;
+	align-items: center;
+	}
+.book-wrapper{
+	position: relative;
+	-webkit-box-flex: 1;
+	flex: 1;
+	padding: 24px;
+	display: -webkit-box;
+	display: flex;
+	background:url("../js/images/smmc-book.jpg") no-repeat 0 0 / 100% 100%;
+	-webkit-perspective: 900px;
+}
+.book-wrapper .page-content{
+	position: absolute;
+	left: 50%;
+	top: 2%;
+	bottom:2%;
+	height: 100%;
+	width: 48%;
+	text-align: center;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform-origin: 0 50%;
+	-webkit-transition: -webkit-transform 5s ease-in .1s;
+}
+.page-back{
+	border-radius: 10px 0 0 10px;
+	z-index: 0;
+	-webkit-transform: rotateY(180deg);
+	background:#f5f5f5;
+}
+.page-font{
+	border-radius: 0 10px 10px 0;
+	z-index: 1;
+	background:#f5f5f5;
+}
+.page-font,.page-back{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	-webkit-backface-visibility: hidden;
+}
+.page-content:hover{
+	-webkit-transform: rotateY(-180deg);
+}
+

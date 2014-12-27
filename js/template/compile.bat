@@ -1,2 +1,2 @@
-cd F:\WebstormWorkspace\Demo\js\template
+cd /d %~dp0
 tmod
