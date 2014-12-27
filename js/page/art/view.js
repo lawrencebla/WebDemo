@@ -8,14 +8,31 @@
     var gallery = require("widget/gallery/gallery");
     var picturePop = require("widget/popup/picture/picture");
 
+    var cache = {
+        tab: {}
+    };
+
     module.exports = view.extend({
+        tpl: {
+            tpl_art: "tpl_art"
+        },
         render: function() {
             this.flowController();
         },
 
+        activateTab: function(event, ui) {
+            if(ui.newPanel) {
+                ui.panel = ui.newPanel;
+            }
+            var id = ui.panel.attr("id");
+            if(!cache.tab[id]) {
+                cache.tab[id] = true;
+                topic_center.publish.getArtDataTodo({actionType: "init", tabId: id});
+            }
+        },
+
         flowController: function() {
             var self = this;
-
             topic_center.subscribe.loadArtDataDone(function(data) {
 
                 var options = util.decodingTopicOptions(data);
@@ -23,7 +40,7 @@
                 data = options.data;
 
                 if(util.hasInfoData(data)) {
-                    self.showData(data);
+                    self.showData(data, params);
                 } else {
                     self.showMsg();
                 }
@@ -33,11 +50,16 @@
                 self.showError();
             });
 
-            topic_center.publish.getArtDataTodo({actionType: "init"});
+            this.$el.html(this.template(this.tpl.tpl_art));
+            this.$el.tabs({
+                create: this.activateTab,
+                activate: this.activateTab
+            });
+
         },
 
-        showData: function(data) {
-            new gallery(this.$el, {galleryClass: "art-gallery"}).render(data);
+        showData: function(data, params) {
+            new gallery(this.$el.find("#" + params.tabId), {galleryClass: "art-gallery"}).start(data);
             var options = {};
             new picturePop(this.$el.find(".art-gallery"), options);
         },

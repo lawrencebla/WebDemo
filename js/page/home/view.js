@@ -38,7 +38,7 @@
         },
 
         showData: function(data) {
-            new gallery(this.$el, {galleryClass: "home-gallery"}).render(data);
+            new gallery(this.$el, {galleryClass: "home-gallery"}).start(data);
             var options = {};
             new picturePop(this.$el.find(".home-gallery"), options);
             this.$el.mCustomScrollbar({
