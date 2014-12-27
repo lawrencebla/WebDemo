@@ -1,4 +1,4 @@
-/*TMODJS:{"version":6,"md5":"10a6223a3624a2975c32dce04e5fb526"}*/
+/*TMODJS:{"version":8,"md5":"952e5ee026878a5665917a7395933972"}*/
 template('tpl_gallery_list',function($data,$filename) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,info=$data.info,i=$data.i,e=$data.e,$escape=$utils.$escape,$out='';
 if(info && info.length) {
@@ -8,7 +8,7 @@ if(info && info.length) {
             e.attach = "(逐梦中)";
         }
 
-$out+=' <li data-src="';
+$out+=' <li class="j-gallery-item" data-src="';
 $out+=$escape(e.largeImgPath);
 $out+='" data-name="';
 $out+=$escape(e.name);
@@ -22,6 +22,8 @@ $out+='" data-content="';
 $out+=$escape(e.content);
 $out+='" data-commonweal-done="';
 $out+=$escape(e.commonwealDone);
+$out+='" data-type="';
+$out+=$escape(e.type);
 $out+='"> <a href="javascript:void(0)" data-id="';
 $out+=$escape(e.id);
 $out+='"> <img src="';

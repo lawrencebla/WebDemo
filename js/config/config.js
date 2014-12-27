@@ -4,6 +4,7 @@
         return {
             apiPath: {
                 loadHomeData: "home/data",
+                loadSubjectData: "subject/data",
                 loadArtData: "art/data",
                 loadCommonwealData: "commonweal/data",
                 loadCommentData: "comment/data",

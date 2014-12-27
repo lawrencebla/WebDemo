@@ -12,6 +12,10 @@
                 ajax.get(config.apiPath.loadHomeData, {}, success, error);
             },
 
+            loadSubjectData: function(success, error) {
+                ajax.get(config.apiPath.loadSubjectData, {}, success, error);
+            },
+
             loadArtData: function(success, error) {
                 ajax.get(config.apiPath.loadArtData, {}, success, error);
             },
@@ -37,6 +41,14 @@
                 topic_center.publish.loadHomeDataDone({data: data, params: util.decodingTopicData(params)});
             }, function () {
                 topic_center.publish.loadHomeDataError();
+            });
+        });
+
+        topic_center.subscribe.loadSubjectDataTodo(function (params) {
+            service.loadSubjectData(function (data) {
+                topic_center.publish.loadSubjectDataDone({data: data, params: util.decodingTopicData(params)});
+            }, function () {
+                topic_center.publish.loadSubjectDataError();
             });
         });
 
