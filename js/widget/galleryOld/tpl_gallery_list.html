@@ -1,0 +1,23 @@
+<%
+if(info && info.length) {
+    for(var i = 0; i < info.length; i++) {
+        var e = info[i];
+        if(e.commonwealDone === false) {
+            e.attach = "(逐梦中)";
+        }
+%>
+<li data-src="<%=e.largeImgPath%>" data-name="<%=e.name%>"
+    data-level="<%=e.level%>" data-plot="<%=e.plot%>"
+    data-interest="<%=e.interest%>" data-content="<%=e.content%>"
+    data-commonweal-done="<%=e.commonwealDone%>">
+    <a href="javascript:void(0)" data-id="<%=e.id%>">
+        <img src="<%=e.smallImgPath%>"/>
+        <span>
+            <%=e.name%><%=e.attach%>
+        </span>
+    </a>
+</li>
+<%
+    }
+}
+%>
