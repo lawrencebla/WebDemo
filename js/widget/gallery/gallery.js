@@ -61,7 +61,7 @@
 
         var _render = function(data) {
             if(_options.galleryClass) {
-                data,galleryClass = _options.galleryClass;
+                data.galleryClass = _options.galleryClass;
             }
             self.el.html(template(tpls.tpl_gallery_wrapper, data));
             self.children = _getChildren();

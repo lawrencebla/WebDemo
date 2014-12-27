@@ -20,6 +20,9 @@ body {
     overflow: hidden;
 
 }
+a,input{
+	outline:none;
+}
 .l{
 	float:left;
 }
@@ -59,6 +62,41 @@ body {
 	padding: 0;
 	z-index: 1;
 }
+#menue-overlay li{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+#menue-overlay .logo-line{
+	width: 210px;
+	padding-top: 64px;
+	padding-left: 46px;
+	padding-bottom: 64px;
+	height: 90px;
+}
+#menue-overlay .logo{
+	width: 84px;
+}
+#menue-overlay .sub-logo{
+	width: 80px;
+	padding-left: 8px;
+}
+#menue-overlay .tab{
+	line-height: 45px;
+	font-size: 25px;
+	margin-bottom:15px;
+}
+#menue-overlay .tab a{
+	padding: 0 0 0 80px;
+	display: block;
+	float: none;
+	cursor:pointer;
+	color: #fff;}
+#menue-overlay .ui-tabs-active a{
+	background: rgba(255, 255, 255, 0.1);
+	border-right: 6px solid rgb(29, 203, 244);
+}
 
 /*home page*/
 #home .home-bg{
@@ -69,6 +107,67 @@ body {
 	width: 100%;
 	height: 100%;
 	background:url("../js/images/smmc-fg.png") no-repeat center center;
+}
+
+/*topic Introduction*/
+#subject{
+	left: 255px;
+	padding: 0;
+}
+.subject-sub-menue{
+	color: white;
+	list-style: none;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	display: flex;
+	justify-content: center;
+	font: normal 22px/38px '';
+	margin: 12px auto;
+	padding: 0;
+}
+.subject-sub-menue a{
+	display: block;
+	padding: 0 2em;
+	padding-top: 12px;
+	margin-top: -12px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 2px solid #000;
+}
+.subject-sub-menue .active a{
+	color: #FFF;
+	background: #222;
+	border-bottom-color: rgb(29, 203, 244);
+}
+#subject .j-subject-content{
+	width: 295px;
+	height: 335px;
+	margin-left: 10px;
+	-webkit-transform: translate3d(0%, 0px, 0px);
+	list-style: none;
+	-webkit-transition: -webkit-transform .4s;
+	transition: transform .4s;
+	position: relative;
+}
+#subject .lb-album li{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width:100%;
+	height:100%;
+	padding: 10px;
+	list-style: none;
+	margin: 0;
+	-webkit-transition: -webkit-transform .4s;
+}
+#subject .lb-album li > a,#subject .lb-album li > a span,#subject .lb-album li > a img{
+	width:100%;
+	height:100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding:0;
 }
 
 

@@ -16,6 +16,7 @@
 
     <script src="js/lib/jquery-1.10.2.js"></script>
     <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/lib/jquery.mousewheel.min.js"></script>
 	<script src="js/lib/sea-debug.js"></script>
     <script src="js/lib/underscore.js"></script>
     <script src="js/lib/backbone.js"></script>
@@ -99,6 +100,18 @@
 <script>
 seajs.use("page/takagism/takagism", function(takagism) {
     takagism.start();
+});
+$(".j-tab-content").mousewheel(function(event, delta, deltaX, deltaY) {
+	/* var scrollWrapper = $(this).find(".").parent();
+	
+	var menuWidth = (".j-menue-overlay").width();
+	var currentOffsetLeft = scrollWrapper.offset().left;
+	var itemWidth = scrollWrapper.width(); 
+	var scrollWrapperWidth = scrollWrapper[0].scrollWidth;
+	if(delta > 0) {
+	} else {
+		if(currentOffsetLeft * -1 + itemWidth + scrollWrapperWidth > )
+	} */
 });
 </script>
 </body>
