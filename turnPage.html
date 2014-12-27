@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link type="text/css" rel="stylesheet" href="css/page.css" />
+    <script src="js/lib/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+	<div class="theme-info-container active">
+	    <div class="page-button front-page-button">
+	        <span id="front-page-button" class="button" title="next">Front Page</span>
+	    </div>
+	    <div class="book-wrapper">
+	        <div class="page-content second">
+		        <div class="page-font">
+		        second font page
+		        </div>
+		        <div class="page-back">
+		        second back page
+		        </div>
+	        </div>
+	        <div class="page-content first">
+		        <div class="page-font">
+		        first font page
+		        </div>
+		        <div class="page-back">
+		        first back page
+		        </div>
+	        </div>
+	    </div>
+	    <div class="page-button next-page-button">
+	        <span id="next-page-button" class="button" title="next">Next Page</span>
+	    </div>
+	    <span class="close-button">Close</span>
+	</div>
+<script>
+var fontButton = document.getElementById("front-page-button");
+var backButton = document.getElementById("next-page-button");
+
+var buttons = document.getElementsByClassName("button");
+
+function pageTuning(arrow) {
+	alert(arrow);
+} 
+
+var onclickAction = function() {
+	if(this.id == "front-page-button") {
+		alert("left");
+	} else {
+		alert("right");
+	}
+};
+
+$(".button").click(function() {
+	if(this.id == "front-page-button") {
+		alert("left");
+	} else {
+		alert("right");
+	}
+});
+
+//fontButton.onclick = onclickAction;
+//backButton.onclick = onclickAction;
+</script>
+</body>
+</html>
