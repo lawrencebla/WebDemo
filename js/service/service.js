@@ -3,6 +3,7 @@
     var ajax = require("core/ajax");
     var config = require("config/config");
     var topic_center = require("topic/topic_center");
+    var cacheService = require("service/cache_service");
     var util = require("util/util");
 
     var service = (function() {
@@ -13,7 +14,16 @@
             },
 
             loadSubjectData: function(success, error) {
-                ajax.get(config.apiPath.loadSubjectData, {}, success, error);
+                ajax.get(config.apiPath.loadSubjectData, {}, function(data) {
+                        success(data);
+                        if(util.hasInfoData(data)) {
+                            var encodingData = {};
+                            $.each(data.info, function(i, item) {
+                                encodingData[item.id] = item;
+                            });
+                            cacheService.add(config.apiPath.loadSubjectData, encodingData);
+                        }
+                    }, error);
             },
 
             loadArtData: function(type, success, error) {

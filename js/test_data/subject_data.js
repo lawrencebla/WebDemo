@@ -7,6 +7,10 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content",
                 type: "escape"
             },
             {
@@ -25,6 +29,10 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content",
                 type: "escape"
             },
             {
@@ -32,6 +40,10 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content",
                 type: "escape"
             },
             {
@@ -39,6 +51,10 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content",
                 type: "rpg"
             },
             {
@@ -46,6 +62,10 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content",
                 type: "rpg"
             },
             {
@@ -53,6 +73,10 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content",
                 type: "detective"
             },
             {
@@ -60,6 +84,10 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
+                level: "1",
+                plot: "1",
+                interest: "1",
+                content: "content",
                 type: "detective"
             }
         ]
