@@ -54,7 +54,7 @@
             var id = ui.panel.attr("id");
             if(!cache.tab[id]) {
                 cache.tab[id] = true;
-                topic_center.publish.getCommonwealDataTodo({actionType: "init", tabId: id});
+                topic_center.publish.getCommonwealDataTodo({actionType: "init", tabId: id, type: id});
             }
         },
 

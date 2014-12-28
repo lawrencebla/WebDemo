@@ -129,21 +129,8 @@
             info: info
         }), $out += " </ul>", new String($out);
     }), /*v:1*/
-    template("tpl_home_content", function($data) {
-        "use strict";
-        var $utils = this, i = ($utils.$helpers, $data.i), info = $data.info, e = $data.e, $escape = $utils.$escape, $out = "";
-        $out += '<div class="home-bg overlay"> <div class="fg_overlay"></div> </div> <div id="j_home_content"> <ul id="test1"> ';
-        for (var i = 0; i < info.length; i++) {
-            var e = info[i];
-            $out += " <li> <div>", $out += $escape(e.name), $out += "</div> </li> ";
-        }
-        $out += ' </ul> <ul id="test2"> ';
-        for (var i = 0; i < info.length; i++) {
-            var e = info[i];
-            $out += " <li> <div>", $out += $escape(e.name), $out += "</div> </li> ";
-        }
-        return $out += " </ul> </div>", new String($out);
-    }), /*v:1*/
+    template("tpl_home", '<div class="j-home-wrapper overlay"> <ul class="j-gallery-wrapper"> <li class="j-home-main-list"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> </span> </a> </li> <li class="j-home-main-list"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> </span> </a> </li> <li class="j-home-main-list"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> </span> </a> </li> <li class="j-home-main-list j-home-activity-list"> <a href="javascript:void(0)" class="j-home-activity-list-left"><</a> <ul class="gallery lb-album home-gallery"> <li class="j-gallery-item" data-src="js/test_data/img/m.jpg"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动 </span> </a> </li> <li class="j-gallery-item" data-src="js/test_data/img/m.jpg" style="display:none;"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动1 </span> </a> </li> <li class="j-gallery-item" data-src="js/test_data/img/m.jpg" style="display:none;"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动2 </span> </a> </li> </ul> <a href="javascript:void(0)" class="j-home-activity-list-right">></a> </li> </ul> </div>'), 
+    /*v:1*/
     template("tpl_popup_acticle", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), picturePath = $data.picturePath, name = $data.name, attach = $data.attach, content = $data.content, $out = "";
@@ -162,6 +149,6 @@
     template("tpl_subject", '<ul class="sub-page-top-menue"> <li class="tab"><a href="javascript:void(0)" class="j-all-link">全部</a></li> <li class="tab"><a href="javascript:void(0)" class="j-escape-link">密室主题</a></li> <li class="tab"><a href="javascript:void(0)" class="j-detective-link">侦探主题</a></li> <li class="tab"><a href="javascript:void(0)" class="j-rpg-link">真人RPG</a></li> </ul> <div class="j-subject-content"></div>'), 
     /*v:5*/
     template("tpl_summary", '<div class="secret-room-bg overlay" style="background-size: 100%;"> </div> <div class="summary-animation-scroll-wrapper overlay"> <div class="summary-animation-scroll"> <section> <section class="title">公司简介</section> <section> <p>水木迷城文化传播有限公司成立于2013年8月，主要业务为真人实景类游戏的设计、推广与运营。</p> <p>公司旗下位于海淀区的三家直营店自开业以来受到玩家的一致好评。目前公司在北京、河北、浙江、福建、广东、辽宁、吉林、湖北、新疆、内蒙、贵州等地已有二十余家加盟店。</p> <p>除实体店外，水木迷城设计团队已为全国三十多个城市的密室逃脱店面提供了密室游戏设计，并独立开发了主题相关电脑程序、手机app，设计了侦探游戏、真人RPG游戏等多种类型的室内实景游戏，拥有丰富的游戏设计经验。</p> </section> </section> <section class="summary-animation-scroll-bottom"> <section class="title">团队成员</section> <section> <p>CEO: 黄帅</p> <p>CTO: 黄帅</p> <p>CFO: 黄帅</p> <p>UFO: 黄帅</p> </section> </section> </div> </div>'), 
-    /*v:2*/
-    template("tpl_taskagism", '<ul id="menue-overlay" class="j-menue-overlay overlay"> <li class="logo-line"> <img class="logo" src="js/images/logo.jpg"/> <img class="sub-logo" src="js/images/Z02.png"/> </li> <li class="tab"><a href="#home">首页</a></li> <li class="tab"><a href="#subject">主题介绍</a></li> <li class="tab"><a href="#art">艺术休闲吧</a></li> <li class="tab"><a href="#commonweal">筑梦公益墙</a></li> <li class="tab"><a href="#summary">公司简介</a></li> <li class="tab"><a href="#comment">预约及评论</a></li> </ul> <div id="home" class="j-home-content overlay j-tab-content"> </div> <div id="subject" class="j-subject-content overlay j-tab-content"> </div> <div id="art" class="j-art-content overlay j-tab-content"> </div> <div id="commonweal" class="j-commonweal-content overlay j-tab-content"> </div> <div id="summary" class="j-summary-content overlay j-tab-content"> </div> <div id="comment" class="j-comment-content overlay j-tab-content"> </div>');
+    /*v:3*/
+    template("tpl_taskagism", '<ul id="menue-overlay" class="j-menue-overlay overlay"> <li class="logo-line"> <img class="logo" src="js/images/logo.jpg"/> <img class="sub-logo" src="js/images/Z02.png"/> </li> <li class="tab"><a href="#home">首页</a></li> <li class="tab"><a href="#subject">主题介绍</a></li> <li class="tab"><a href="#art">艺术休闲吧</a></li> <li class="tab"><a href="#commonweal">筑梦公益墙</a></li> <li class="tab"><a href="#summary">公司简介</a></li> <li class="tab"><a href="#comment">预约及评论</a></li> </ul> <div id="home" class="j-home-content overlay j-tab-content"> <div class="home-bg overlay"> <div class="fg_overlay"></div> </div> </div> <div id="subject" class="j-subject-content overlay j-tab-content"> </div> <div id="art" class="j-art-content overlay j-tab-content"> </div> <div id="commonweal" class="j-commonweal-content overlay j-tab-content"> </div> <div id="summary" class="j-summary-content overlay j-tab-content"> </div> <div id="comment" class="j-comment-content overlay j-tab-content"> </div> ');
 }();
