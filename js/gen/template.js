@@ -80,7 +80,7 @@
     }) : "undefined" != typeof exports ? module.exports = template : this.template = template, 
     /*v:1*/
     template("tpl_art", '<ul> <li><a href="#arder">休闲娱乐区</a></li> <li><a href="#artwork">艺术品展示</a></li> </ul> <div id="arder" class="j-arder-content"> </div> <div id="artwork" class="j-artwork-content"> </div>'), 
-    /*v:3*/
+    /*v:1*/
     template("tpl_comment", function($data, $filename) {
         "use strict";
         var $utils = this, info = ($utils.$helpers, $data.info), i = $data.i, include = function(filename, data) {
@@ -92,7 +92,7 @@
         info && info.length > 0) for (var i = 0; i < info.length; i++) include("./tpl_comment_list_item", info[i]);
         return $out += ' </ul> <textarea class="j-post-comment-content"></textarea> <a class="j-post-comment" href="javascript:void(0)">评论</a> </div> </div>', 
         new String($out);
-    }), /*v:2*/
+    }), /*v:1*/
     template("tpl_comment_list_item", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), content = $data.content, date = $data.date, $out = "";
@@ -100,7 +100,7 @@
         $out += $escape(date), $out += "</span> </li>", new String($out);
     }), /*v:1*/
     template("tpl_commonweal", '<ul> <li><a href="#weal_doing">火热逐梦中</a></li> <li><a href="#weal_done">艺术品展示</a></li> </ul> <div id="weal_doing" class="j-weal-doing-content"> </div> <div id="weal_done" class="j-weal-done-content"> </div>'), 
-    /*v:8*/
+    /*v:1*/
     template("tpl_gallery_list", function($data) {
         "use strict";
         var $utils = this, info = ($utils.$helpers, $data.info), i = $data.i, e = $data.e, $escape = $utils.$escape, $out = "";
@@ -116,7 +116,7 @@
             $out += '"/> <span> ', $out += $escape(e.name), $out += $escape(e.attach), $out += " </span> </a> </li> ";
         }
         return new String($out);
-    }), /*v:5*/
+    }), /*v:1*/
     template("tpl_gallery_wrapper", function($data, $filename) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), galleryClass = $data.galleryClass, include = function(filename, data) {
@@ -128,29 +128,16 @@
         $out += '"> ', include("./tpl_gallery_list", {
             info: info
         }), $out += " </ul>", new String($out);
-    }), /*v:2*/
-    template("tpl_home_content", function($data) {
-        "use strict";
-        var $utils = this, i = ($utils.$helpers, $data.i), info = $data.info, e = $data.e, $escape = $utils.$escape, $out = "";
-        $out += '<div class="home-bg overlay"> <div class="fg_overlay"></div> </div> <div id="j_home_content"> <ul id="test1"> ';
-        for (var i = 0; i < info.length; i++) {
-            var e = info[i];
-            $out += " <li> <div>", $out += $escape(e.name), $out += "</div> </li> ";
-        }
-        $out += ' </ul> <ul id="test2"> ';
-        for (var i = 0; i < info.length; i++) {
-            var e = info[i];
-            $out += " <li> <div>", $out += $escape(e.name), $out += "</div> </li> ";
-        }
-        return $out += " </ul> </div>", new String($out);
-    }), /*v:2*/
+    }), /*v:3*/
+    template("tpl_home", '<div class="j-home-wrapper"> <ul class="j-gallery-wrapper"> <li> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> </span> </a> </li> <li> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> </span> </a> </li> <li> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> </span> </a> </li> <li class="j-gallery-item j-home-activity-list"> <ul class="gallery lb-album home-gallery"> <li class="j-gallery-item" data-src="js/test_data/img/m.jpg"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动 </span> </a> </li> <li class="j-gallery-item" data-src="js/test_data/img/m.jpg" style="display:none;"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动1 </span> </a> </li> <li class="j-gallery-item" data-src="js/test_data/img/m.jpg" style="display:none;"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动2 </span> </a> </li> </ul> </li> </ul> </div>'), 
+    /*v:1*/
     template("tpl_popup_acticle", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), picturePath = $data.picturePath, name = $data.name, attach = $data.attach, content = $data.content, $out = "";
         return $out += '<div> <div><img src="', $out += $escape(picturePath), $out += '"/></div> <div> <div>', 
         $out += $escape(name), $out += $escape(attach), $out += ":</div> <div>", $out += $escape(content), 
         $out += "</div> </div> </div>", new String($out);
-    }), /*v:2*/
+    }), /*v:1*/
     template("tpl_popup_book", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), picturePath = $data.picturePath, name = $data.name, level = $data.level, plot = $data.plot, interest = $data.interest, content = $data.content, $out = "";
@@ -160,8 +147,8 @@
         $out += $escape(content), $out += "</div> </div> </div>", new String($out);
     }), /*v:1*/
     template("tpl_subject", '<ul> <li><a href="javascript:void(0)" class="j-all-link">全部</a></li> <li><a href="javascript:void(0)" class="j-escape-link">密室主题</a></li> <li><a href="javascript:void(0)" class="j-detective-link">侦探主题</a></li> <li><a href="javascript:void(0)" class="j-rpg-link">真人RPG</a></li> </ul> <div class="j-subject-content"></div>'), 
-    /*v:6*/
+    /*v:1*/
     template("tpl_summary", '<div class="summary-animation-scroll-wrapper"> <div class="summary-animation-scroll"> <section> <section>公司简介</section> <section> <section>水木迷城文化传播有限公司成立于2013年8月，主要业务为真人实景类游戏的设计、推广与运营。</section> <section>公司旗下位于海淀区的三家直营店自开业以来受到玩家的一致好评。目前公司在北京、河北、浙江、福建、广东、辽宁、吉林、湖北、新疆、内蒙、贵州等地已有二十余家加盟店。</section> <section>除实体店外，水木迷城设计团队已为全国三十多个城市的密室逃脱店面提供了密室游戏设计，并独立开发了主题相关电脑程序、手机app，设计了侦探游戏、真人RPG游戏等多种类型的室内实景游戏，拥有丰富的游戏设计经验。</section> </section> </section> <section> <section>团队成员</section> <section> <section>CEO: 黄帅</section> <section>CTO: 黄帅</section> <section>CFO: 黄帅</section> <section>UFO: 黄帅</section> </section> </section> </div> </div>'), 
-    /*v:9*/
-    template("tpl_taskagism", '<ul id="menue-overlay" class="overlay"> <li><a href="#home">首页</a></li> <li><a href="#subject">主题介绍</a></li> <li><a href="#art">艺术休闲吧</a></li> <li><a href="#commonweal">筑梦公益墙</a></li> <li><a href="#summary">公司简介</a></li> <li><a href="#comment">联系我们</a></li> </ul> <div id="home" class="j-home-content overlay"> </div> <div id="subject" class="j-subject-content overlay"> </div> <div id="art" class="j-art-content overlay"> </div> <div id="commonweal" class="j-commonweal-content overlay"> </div> <div id="summary" class="j-summary-content overlay"> </div> <div id="comment" class="j-comment-content overlay"> </div>');
+    /*v:1*/
+    template("tpl_taskagism", '<ul id="menue-overlay" class="overlay"> <li><a href="#home">首页</a></li> <li><a href="#subject">主题介绍</a></li> <li><a href="#art">艺术休闲吧</a></li> <li><a href="#commonweal">筑梦公益墙</a></li> <li><a href="#summary">公司简介</a></li> <li><a href="#comment">联系我们</a></li> </ul> <div id="home" class="j-home-content overlay"> <div class="home-bg overlay"> <div class="fg_overlay" style="background-size: 100%;"></div> </div> </div> <div id="subject" class="j-subject-content overlay"> </div> <div id="art" class="j-art-content overlay"> </div> <div id="commonweal" class="j-commonweal-content overlay"> </div> <div id="summary" class="j-summary-content overlay"> </div> <div id="comment" class="j-comment-content overlay"> </div>');
 }();

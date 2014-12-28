@@ -9,7 +9,11 @@
     var picturePop = require("widget/popup/picture/picture");
 
     module.exports = view.extend({
+        tpl: {
+            tpl_home: "tpl_home"
+        },
         render: function() {
+            this.$el.append(this.template(this.tpl.tpl_home));
             this.flowController();
         },
 
@@ -37,13 +41,13 @@
         },
 
         showData: function(data) {
-            new gallery(this.$el, {galleryClass: "home-gallery"}).start(data);
+            //new gallery(this.$el.find(".j-home-content"), {galleryClass: "home-gallery"}).start(data);
             var options = {};
             new picturePop(this.$el.find(".home-gallery"), options);
-            this.$el.mCustomScrollbar({
+            /*this.$el.find(".j-home-content").mCustomScrollbar({
                 axis: "x",
                 advanced:{autoExpandHorizontalScroll:true}
-            });
+            });*/
         },
         showMsg: function() {
             //console.log("showMsg");
