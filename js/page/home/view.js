@@ -43,19 +43,19 @@
             this.$el.append(this.template(this.tpl.tpl_home));
             var activityList = $(".j-home-activity-list");
             activityList.find(".j-home-activity-list-left").click(function() {
-                var currentItem = activityList.find(".j-gallery-item:visible");
-                var prevItem = currentItem.prev(".j-gallery-item");
+                var currentItem = activityList.find(".j-gallery-item-home:visible");
+                var prevItem = currentItem.prev(".j-gallery-item-home");
                 if(prevItem.length < 1) {
-                    prevItem = currentItem.nextAll(".j-gallery-item:last");
+                    prevItem = currentItem.nextAll(".j-gallery-item-home:last");
                 }
                 currentItem.hide();
                 prevItem.show();
             });
             activityList.find(".j-home-activity-list-right").click(function() {
-                var currentItem = activityList.find(".j-gallery-item:visible");
-                var nextItem = currentItem.next(".j-gallery-item");
+                var currentItem = activityList.find(".j-gallery-item-home:visible");
+                var nextItem = currentItem.next(".j-gallery-item-home");
                 if(nextItem.length < 1) {
-                    nextItem = currentItem.prevAll(".j-gallery-item:last");
+                    nextItem = currentItem.prevAll(".j-gallery-item-home:last");
                 }
                 currentItem.hide();
                 nextItem.show();
