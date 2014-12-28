@@ -119,11 +119,11 @@ var calcTansfrom = function(scrollWrapper, itemWidth, offsetLeft) {
 
 $(".j-tab-content").mousewheel(function(event, delta, deltaX, deltaY) {
 	var scrollWrapper = $(this).find(".j-gallery-wrapper").parent();
-	
+
 	var windowWidth = $(window).width();
 	var menuWidth = $(".j-menue-overlay").width() + 10;
 	var currentOffsetLeft = scrollWrapper.offset().left;
-	var itemWidth = scrollWrapper.width() + 20; 
+	var itemWidth = scrollWrapper.width() + 20;
 	var scrollWrapperWidth = scrollWrapper[0].scrollWidth;
 	if(delta > 0) {
 		if(currentOffsetLeft + itemWidth > menuWidth) {
@@ -131,7 +131,7 @@ $(".j-tab-content").mousewheel(function(event, delta, deltaX, deltaY) {
 		} else {
 			calcTansfrom(scrollWrapper, itemWidth, itemWidth, currentOffsetLeft + itemWidth - menuWidth);
 		}
-	} else {		
+	} else {
 		console.log(itemWidth - currentOffsetLeft);
 		console.log(scrollWrapperWidth - windowWidth + menuWidth);
 		if(itemWidth - currentOffsetLeft > scrollWrapperWidth - windowWidth) {

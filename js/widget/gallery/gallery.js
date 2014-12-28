@@ -21,11 +21,16 @@
 
             children: 子元素/选择器
 
+            marginTopHeight: 容器距离顶部高度
+
+            scale: 子元素 宽:长 比例
+
          */
         var _options = {
             boundaryHeight: [340],
             children: ".j-gallery-item",
-            marginTopHeight: 20
+            marginTopHeight: 20,
+            scale: 1
         };
 
         // 初始化数据
@@ -38,6 +43,7 @@
             self.children.hide();
             self.children.css("-webkit-transform", "translate3d(0, 0, 0)");
             self.children.filter(selector).show();
+            _calcItemSize(_getRowsNum());
             _calcItemPosition(_getRowsNum());
         };
 
@@ -56,9 +62,11 @@
         // 排版
         var _flowItem = function(data, rowsNum) {
             _render(data);
+            _calcItemSize(rowsNum);
             _calcItemPosition(rowsNum);
         };
 
+        // 显示数据
         var _render = function(data) {
             if(data) {
                 if (_options.galleryClass) {
@@ -69,11 +77,19 @@
             self.children = _getChildren();
         };
 
+        // 获取子元素
         var _getChildren = function() {
             if(_options.children instanceof jQuery) {
                 return _options.children;
             }
             return self.el.find(_options.children);
+        };
+
+        // 计算模块大小
+        var _calcItemSize = function(rowsNum) {
+            var containerHeight = $(window).height() - _options.marginTopHeight;
+            self.el.height(containerHeight/rowsNum);
+            self.el.width(self.el.height() * _options.scale);
         };
 
         // 计算模块位置
@@ -83,11 +99,12 @@
             $.each(self.children.filter(":visible"), function(i, item) {
                 $(item).css("-webkit-transform", "translate3d(" + parseInt(i/rowsNum) + "00%, " + i%rowsNum + "00%, 0px)");
             });
-        }
+        };
 
         $.extend(_options, options);
 
         $(window).resize(function() {
+            _calcItemSize(_getRowsNum());
             _calcItemPosition(_getRowsNum());
         });
 
