@@ -36,6 +36,7 @@
         // 分类
         var _filter = function(selector) {
             self.children.hide();
+            self.children.css("-webkit-transform", "translate3d(0, 0, 0)");
             self.children.filter(selector).show();
             _calcItemPosition(_getRowsNum());
         };
