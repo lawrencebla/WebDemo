@@ -107,7 +107,7 @@ var calcTansfrom = function(scrollWrapper, itemWidth, offsetLeft) {
 };
 
 $(".j-tab-content").mousewheel(function(event, delta, deltaX, deltaY) {
-	var scrollWrapper = $(this).find(".j-gallery-wrapper").parent();
+	var scrollWrapper = $(this).find(".j-gallery-wrapper");
 	
 	var windowWidth = $(window).width();
 	var menuWidth = $(".j-menue-overlay").width() + 10;
