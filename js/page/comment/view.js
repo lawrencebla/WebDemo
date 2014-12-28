@@ -24,7 +24,7 @@
                     self.$el.html(self.template(self.tpl.tpl_comment, data))
                         .find(".j-post-comment-list-wrapper")
                         .slimscroll({
-                            height: 100
+                            height: 300
                         });
                 } else {
                     self.$el.html(self.template(self.tpl.tpl_comment));

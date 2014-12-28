@@ -23,6 +23,7 @@
     <script src="js/lib/json2.js"></script>
     <script src="js/lib/jquery.channel.js"></script>
     <script src="js/lib/jquery.slimscroll.js"></script>
+    <script src="js/lib/jquery.mCustomScrollbar.js"></script> 
     <script src="js/lib/lightGallery.custom.js"></script>
 
     <script src="js/core/class.js"></script>
@@ -91,19 +92,7 @@
     <script src="js/test_data/art_data.js"></script>
     <script src="js/test_data/commonweal_data.js"></script>
     <script src="js/test_data/comment_data.js"></script>
-    <style>
-        .j-home-wrapper .j-gallery-wrapper{
-            width: 240px;
-            height: 240px;
-            position: relative;
-        }
-       .j-home-wrapper  .j-home-main-list{
-            position: absolute;
-        }
-        .j-home-wrapper .j-home-main-list .lb-album{
-            width: inherit;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -119,12 +108,12 @@ var calcTansfrom = function(scrollWrapper, itemWidth, offsetLeft) {
 };
 
 $(".j-tab-content").mousewheel(function(event, delta, deltaX, deltaY) {
-	var scrollWrapper = $(this).find(".j-gallery-wrapper").parent();
-
+	var scrollWrapper = $(this).find(".j-gallery-wrapper");
+	
 	var windowWidth = $(window).width();
 	var menuWidth = $(".j-menue-overlay").width() + 10;
 	var currentOffsetLeft = scrollWrapper.offset().left;
-	var itemWidth = scrollWrapper.width() + 20;
+	var itemWidth = scrollWrapper.width() + 20; 
 	var scrollWrapperWidth = scrollWrapper[0].scrollWidth;
 	if(delta > 0) {
 		if(currentOffsetLeft + itemWidth > menuWidth) {
@@ -132,7 +121,7 @@ $(".j-tab-content").mousewheel(function(event, delta, deltaX, deltaY) {
 		} else {
 			calcTansfrom(scrollWrapper, itemWidth, itemWidth, currentOffsetLeft + itemWidth - menuWidth);
 		}
-	} else {
+	} else {		
 		console.log(itemWidth - currentOffsetLeft);
 		console.log(scrollWrapperWidth - windowWidth + menuWidth);
 		if(itemWidth - currentOffsetLeft > scrollWrapperWidth - windowWidth) {

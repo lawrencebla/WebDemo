@@ -29,7 +29,7 @@
         var _options = {
             boundaryHeight: [340],
             children: ".j-gallery-item",
-            marginTopHeight: 20,
+            marginTopHeight: 100,
             scale: 1
         };
 
@@ -88,8 +88,8 @@
         // 计算模块大小
         var _calcItemSize = function(rowsNum) {
             var containerHeight = $(window).height() - _options.marginTopHeight;
-            self.el.height(containerHeight/rowsNum);
-            self.el.width(self.el.height() * _options.scale);
+            self.el.children(".j-gallery-wrapper").height(containerHeight/rowsNum);
+            self.el.children(".j-gallery-wrapper").width(self.el.children(".j-gallery-wrapper").height() * _options.scale);
         };
 
         // 计算模块位置
