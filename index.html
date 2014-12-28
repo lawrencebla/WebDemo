@@ -101,17 +101,34 @@
 seajs.use("page/takagism/takagism", function(takagism) {
     takagism.start();
 });
+
+var calcTansfrom = function(scrollWrapper, itemWidth, offsetLeft) {
+	scrollWrapper.css("-webkit-transform", "translate3d(" + offsetLeft/itemWidth * 100 + "%, 0%, 0px)");
+};
+
 $(".j-tab-content").mousewheel(function(event, delta, deltaX, deltaY) {
-	/* var scrollWrapper = $(this).find(".").parent();
+	var scrollWrapper = $(this).find(".j-gallery-wrapper").parent();
 	
-	var menuWidth = (".j-menue-overlay").width();
+	var windowWidth = $(window).width();
+	var menuWidth = $(".j-menue-overlay").width() + 10;
 	var currentOffsetLeft = scrollWrapper.offset().left;
-	var itemWidth = scrollWrapper.width(); 
+	var itemWidth = scrollWrapper.width() + 20; 
 	var scrollWrapperWidth = scrollWrapper[0].scrollWidth;
 	if(delta > 0) {
-	} else {
-		if(currentOffsetLeft * -1 + itemWidth + scrollWrapperWidth > )
-	} */
+		if(currentOffsetLeft + itemWidth > menuWidth) {
+			calcTansfrom(scrollWrapper, itemWidth, 0);
+		} else {
+			calcTansfrom(scrollWrapper, itemWidth, itemWidth, currentOffsetLeft + itemWidth - menuWidth);
+		}
+	} else {		
+		console.log(itemWidth - currentOffsetLeft);
+		console.log(scrollWrapperWidth - windowWidth + menuWidth);
+		if(itemWidth - currentOffsetLeft > scrollWrapperWidth - windowWidth) {
+			calcTansfrom(scrollWrapper, itemWidth, windowWidth - scrollWrapperWidth - menuWidth);
+		} else {
+			calcTansfrom(scrollWrapper, itemWidth, currentOffsetLeft - itemWidth - menuWidth);
+		}
+	}
 });
 </script>
 </body>
