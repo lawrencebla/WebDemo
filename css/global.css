@@ -163,7 +163,7 @@ a,input{
 	text-decoration: none;
 	border-bottom: 2px solid #000;
 }
-.sub-page-top-menue .active a{
+.sub-page-top-menue .ui-state-active a,.sub-page-top-menue .active{
 	color: #FFF;
 	background: #222;
 	border-bottom-color: rgb(29, 203, 244);
@@ -175,6 +175,9 @@ a,input{
 }
 .ui-tabs .ui-tabs-panel{
 	padding:0;
+}
+.ui-tabs .ui-tabs-nav li{
+	margin:0;
 }
 #home,#subject,#art,#commonweal,#summary,#comment{
 	left: 255px;
@@ -199,6 +202,33 @@ a,input{
 }
 .j-home-wrapper{
 	padding: 60px 0;
+}
+.j-home-activity-list .arrow{
+	position:absolute;
+}
+.j-home-activity-list .home-gallery{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+}
+.j-home-activity-list .lb-album{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+}
+.lb-album li > a img{
+	width: 100%;
+	height: 100%;	
+}
+.j-home-activity-list .lb-album li > a span{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 /*summery page */
 .secret-room-bg{

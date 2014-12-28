@@ -46,15 +46,23 @@
             g.start(data);
             this.$el.find(".j-all-link").click(function() {
                 g.filter(self.$el.find(".j-gallery-item"));
+                $(".sub-page-top-menue .tab a").removeClass("active");
+                $(this).addClass("active");
             });
             this.$el.find(".j-escape-link").click(function() {
                 g.filter(self.$el.find("[data-type='escape']"));
+                $(".sub-page-top-menue .tab a").removeClass("active");
+                $(this).addClass("active");
             });
             this.$el.find(".j-detective-link").click(function() {
                 g.filter(self.$el.find("[data-type='detective']"));
+                $(".sub-page-top-menue .tab a").removeClass("active");
+                $(this).addClass("active");
             });
             this.$el.find(".j-rpg-link").click(function() {
                 g.filter(self.$el.find("[data-type='rpg']"));
+                $(".sub-page-top-menue .tab a").removeClass("active");
+                $(this).addClass("active");
             });
             var options = {};
             new bookPop(this.$el.find(".subject-gallery"), options);
