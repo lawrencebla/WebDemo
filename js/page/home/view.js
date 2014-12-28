@@ -13,7 +13,6 @@
             tpl_home: "tpl_home"
         },
         render: function() {
-            this.$el.append(this.template(this.tpl.tpl_home));
             this.flowController();
         },
 
@@ -41,7 +40,8 @@
         },
 
         showData: function(data) {
-            //new gallery(this.$el.find(".j-home-content"), {galleryClass: "home-gallery"}).start(data);
+            this.$el.append(this.template(this.tpl.tpl_home));
+            new gallery(this.$el.find(".j-home-wrapper"), {galleryClass: "home-gallery"}).start();
             var options = {};
             new picturePop(this.$el.find(".home-gallery"), options);
             /*this.$el.find(".j-home-content").mCustomScrollbar({

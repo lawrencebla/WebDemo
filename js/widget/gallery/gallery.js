@@ -54,16 +54,17 @@
 
         // 排版
         var _flowItem = function(data, rowsNum) {
-            //_calcItemSize(rowsNum);
             _render(data);
             _calcItemPosition(rowsNum);
         };
 
         var _render = function(data) {
-            if(_options.galleryClass) {
-                data,galleryClass = _options.galleryClass;
+            if(data) {
+                if (_options.galleryClass) {
+                    data.galleryClass = _options.galleryClass;
+                }
+                self.el.append(template(tpls.tpl_gallery_wrapper, data));
             }
-            self.el.append(template(tpls.tpl_gallery_wrapper, data));
             self.children = _getChildren();
         };
 
@@ -72,19 +73,6 @@
                 return _options.children;
             }
             return self.el.find(_options.children);
-        };
-
-        // 计算模块大小
-        var _calcItemSize = function(rowsNum) {
-            var containerHeight = self.el.outerHeight();
-            var itemHeight = containerHeight/rowsNum;
-            $.each(self.children, function(i, item) {
-                var $item = $(item);
-                if(!$item.is("hidden")) {
-                    $(item).css("transform", "scale3d(" + +")");
-                }
-            });
-            return;
         };
 
         // 计算模块位置
