@@ -1,0 +1,16 @@
+<div class="right j-book-right-part">
+    <h1><%=name%></h1>
+    <ul class="options">
+        <li>
+            <span>难度: </span><%for(var i = 0; i < level * 1; i++) {%>★<%}%>
+        </li>
+        <li>
+            <span>情节:</span><%for(var i = 0; i < plot * 1; i++) {%>★<%}%>
+        </li>
+        <li>
+            <span>趣味：</span><%for(var i = 0; i < interest * 1; i++) {%>★<%}%>
+        </li>
+    </ul>
+    <h2>主题介绍：</h2>
+    <p><%=content%></p>
+</div>

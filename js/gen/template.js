@@ -80,7 +80,37 @@
     }) : "undefined" != typeof exports ? module.exports = template : this.template = template, 
     /*v:1*/
     template("tpl_art", '<ul> <li><a href="#arder">休闲娱乐区</a></li> <li><a href="#artwork">艺术品展示</a></li> </ul> <div id="arder" class="j-arder-content"> </div> <div id="artwork" class="j-artwork-content"> </div>'), 
-    /*v:1*/
+    /*v:4*/
+    template("tpl_book", function($data, $filename) {
+        "use strict";
+        var $utils = this, include = ($utils.$helpers, function(filename, data) {
+            data = data || $data;
+            var text = $utils.$include(filename, data, $filename);
+            return $out += text;
+        }), data = $data.data, $out = "";
+        return $out += '<div id="float_overlay" class="active j-book-content"> <div class="button-wrapper"> <button class="prev j-prev-button" title="上一个"></button> </div> <div class="content-wrapper"> <div class="content"> ', 
+        include("./tpl_book_right_part", data), $out += " ", include("./tpl_book_left_part", data), 
+        $out += ' </div> </div> <div class="button-wrapper"> <button class="next j-next-button" title="下一个"></button> </div> <button class="close j-close-book-button" title="关闭"></button> </div>', 
+        new String($out);
+    }), /*v:3*/
+    template("tpl_book_left_part", function($data) {
+        "use strict";
+        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), largeImgPath = $data.largeImgPath, $out = "";
+        return $out += '<div class="left j-book-left-part"> <img class="j-book-left-img" src="', 
+        $out += $escape(largeImgPath), $out += '"> </div>', new String($out);
+    }), /*v:4*/
+    template("tpl_book_right_part", function($data) {
+        "use strict";
+        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), name = $data.name, i = $data.i, level = $data.level, plot = $data.plot, interest = $data.interest, content = $data.content, $out = "";
+        $out += '<div class="right j-book-right-part"> <h1>', $out += $escape(name), $out += '</h1> <ul class="options"> <li> <span>难度: </span>';
+        for (var i = 0; 1 * level > i; i++) $out += "★";
+        $out += " </li> <li> <span>情节:</span>";
+        for (var i = 0; 1 * plot > i; i++) $out += "★";
+        $out += " </li> <li> <span>趣味：</span>";
+        for (var i = 0; 1 * interest > i; i++) $out += "★";
+        return $out += " </li> </ul> <h2>主题介绍：</h2> <p>", $out += $escape(content), $out += "</p> </div>", 
+        new String($out);
+    }), /*v:1*/
     template("tpl_comment", function($data, $filename) {
         "use strict";
         var $utils = this, info = ($utils.$helpers, $data.info), i = $data.i, include = function(filename, data) {
@@ -100,7 +130,7 @@
         $out += $escape(date), $out += "</span> </li>", new String($out);
     }), /*v:1*/
     template("tpl_commonweal", '<ul> <li><a href="#weal_doing">火热逐梦中</a></li> <li><a href="#weal_done">艺术品展示</a></li> </ul> <div id="weal_doing" class="j-weal-doing-content"> </div> <div id="weal_done" class="j-weal-done-content"> </div>'), 
-    /*v:1*/
+    /*v:2*/
     template("tpl_gallery_list", function($data) {
         "use strict";
         var $utils = this, info = ($utils.$helpers, $data.info), i = $data.i, e = $data.e, $escape = $utils.$escape, $out = "";
@@ -108,12 +138,13 @@
             var e = info[i];
             e.commonwealDone === !1 && (e.attach = "(逐梦中)"), $out += ' <li class="j-gallery-item" data-src="', 
             $out += $escape(e.largeImgPath), $out += '" data-name="', $out += $escape(e.name), 
-            $out += '" data-level="', $out += $escape(e.level), $out += '" data-plot="', $out += $escape(e.plot), 
-            $out += '" data-interest="', $out += $escape(e.interest), $out += '" data-content="', 
-            $out += $escape(e.content), $out += '" data-commonweal-done="', $out += $escape(e.commonwealDone), 
-            $out += '" data-type="', $out += $escape(e.type), $out += '"> <a href="javascript:void(0)" data-id="', 
-            $out += $escape(e.id), $out += '"> <img src="', $out += $escape(e.smallImgPath), 
-            $out += '"/> <span> ', $out += $escape(e.name), $out += $escape(e.attach), $out += " </span> </a> </li> ";
+            $out += '" data-id="', $out += $escape(e.id), $out += '" data-level="', $out += $escape(e.level), 
+            $out += '" data-plot="', $out += $escape(e.plot), $out += '" data-interest="', $out += $escape(e.interest), 
+            $out += '" data-content="', $out += $escape(e.content), $out += '" data-commonweal-done="', 
+            $out += $escape(e.commonwealDone), $out += '" data-type="', $out += $escape(e.type), 
+            $out += '"> <a href="javascript:void(0)" data-id="', $out += $escape(e.id), $out += '"> <img src="', 
+            $out += $escape(e.smallImgPath), $out += '"/> <span> ', $out += $escape(e.name), 
+            $out += $escape(e.attach), $out += " </span> </a> </li> ";
         }
         return new String($out);
     }), /*v:1*/
