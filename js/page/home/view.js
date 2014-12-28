@@ -41,7 +41,26 @@
 
         showData: function(data) {
             this.$el.append(this.template(this.tpl.tpl_home));
-            new gallery(this.$el.find(".j-home-wrapper"), {galleryClass: "home-gallery"}).start();
+            var activityList = $(".j-home-activity-list");
+            activityList.find(".j-home-activity-list-left").click(function() {
+                var currentItem = activityList.find(".j-gallery-item:visible");
+                var prevItem = currentItem.prev(".j-gallery-item");
+                if(prevItem.length < 1) {
+                    prevItem = currentItem.nextAll(".j-gallery-item:last");
+                }
+                currentItem.hide();
+                prevItem.show();
+            });
+            activityList.find(".j-home-activity-list-right").click(function() {
+                var currentItem = activityList.find(".j-gallery-item:visible");
+                var nextItem = currentItem.next(".j-gallery-item");
+                if(nextItem.length < 1) {
+                    nextItem = currentItem.prevAll(".j-gallery-item:last");
+                }
+                currentItem.hide();
+                nextItem.show();
+            });
+            new gallery(this.$el.find(".j-home-wrapper"), {children: ".j-home-main-list"}).start();
             var options = {};
             new picturePop(this.$el.find(".home-gallery"), options);
             /*this.$el.find(".j-home-content").mCustomScrollbar({
