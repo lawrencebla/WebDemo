@@ -16,12 +16,12 @@
                 ajax.get(config.apiPath.loadSubjectData, {}, success, error);
             },
 
-            loadArtData: function(success, error) {
-                ajax.get(config.apiPath.loadArtData, {}, success, error);
+            loadArtData: function(type, success, error) {
+                ajax.get(config.apiPath.loadArtData, {type: type}, success, error);
             },
 
-            loadCommonwealData: function(success, error) {
-                ajax.get(config.apiPath.loadCommonwealData, {}, success, error);
+            loadCommonwealData: function(type, success, error) {
+                ajax.get(config.apiPath.loadCommonwealData, {type: type}, success, error);
             },
 
             loadCommentData: function(success, error) {
@@ -53,7 +53,7 @@
         });
 
         topic_center.subscribe.loadArtDataTodo(function (params) {
-            service.loadArtData(function (data) {
+            service.loadArtData(util.decodingTopicData(params).type, function (data) {
                 topic_center.publish.loadArtDataDone({data: data, params: util.decodingTopicData(params)});
             }, function () {
                 topic_center.publish.loadArtDataError();
@@ -61,7 +61,7 @@
         });
 
         topic_center.subscribe.loadCommonwealDataTodo(function (params) {
-            service.loadCommonwealData(function (data) {
+            service.loadCommonwealData(util.decodingTopicData(params).type, function (data) {
                 topic_center.publish.loadCommonwealDataDone({data: data, params: util.decodingTopicData(params)});
             }, function () {
                 topic_center.publish.loadCommonwealDataError();

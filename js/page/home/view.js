@@ -63,10 +63,6 @@
             new gallery(this.$el.find(".j-home-wrapper"), {children: ".j-home-main-list"}).start();
             var options = {};
             new picturePop(this.$el.find(".home-gallery"), options);
-            /*this.$el.find(".j-home-content").mCustomScrollbar({
-                axis: "x",
-                advanced:{autoExpandHorizontalScroll:true}
-            });*/
         },
         showMsg: function() {
             //console.log("showMsg");
