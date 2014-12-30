@@ -92,24 +92,25 @@
         include("./tpl_book_right_part", data), $out += " ", include("./tpl_book_left_part", data), 
         $out += ' </div> </div> <div class="button-wrapper"> <button class="next j-next-button" title="下一个"></button> </div> <button class="close j-close-book-button" title="关闭"></button> </div>', 
         new String($out);
-    }), /*v:1*/
+    }), /*v:3*/
     template("tpl_book_left_part", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), largeImgPath = $data.largeImgPath, $out = "";
-        return $out += '<div class="left j-book-left-part"> <img class="j-book-left-img" src="', 
-        $out += $escape(largeImgPath), $out += '"> </div>', new String($out);
-    }), /*v:1*/
+        return $out += '<div class="left j-book-left-part"> <div class="book-img-container"> <img class="j-book-left-img" src="', 
+        $out += $escape(largeImgPath), $out += '"> <img class="logo" src="js/images/logo.jpg" style="width:70px;"/> </div> </div>', 
+        new String($out);
+    }), /*v:2*/
     template("tpl_book_right_part", function($data) {
         "use strict";
-        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), name = $data.name, i = $data.i, level = $data.level, plot = $data.plot, interest = $data.interest, content = $data.content, $out = "";
+        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), name = $data.name, i = $data.i, level = $data.level, plot = $data.plot, interest = $data.interest, content = $data.content, largeImgPath = $data.largeImgPath, $out = "";
         $out += '<div class="right j-book-right-part"> <h1>', $out += $escape(name), $out += '</h1> <ul class="options"> <li> <span>难度: </span>';
         for (var i = 0; 1 * level > i; i++) $out += "★";
         $out += " </li> <li> <span>情节:</span>";
         for (var i = 0; 1 * plot > i; i++) $out += "★";
         $out += " </li> <li> <span>趣味：</span>";
         for (var i = 0; 1 * interest > i; i++) $out += "★";
-        return $out += " </li> </ul> <h2>主题介绍：</h2> <p>", $out += $escape(content), $out += "</p> </div>", 
-        new String($out);
+        return $out += " </li> </ul> <h2>主题介绍：</h2> <p>", $out += $escape(content), $out += '</p> <ul class="imgs"> <li> <img src="', 
+        $out += $escape(largeImgPath), $out += '"/> </li> </ul> </div>', new String($out);
     }), /*v:4*/
     template("tpl_comment", function($data, $filename) {
         "use strict";

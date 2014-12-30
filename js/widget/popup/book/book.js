@@ -17,8 +17,8 @@
         var cacheIdToIndex = {};
 
         var __renderPage = function(arrow) {
-            var newLeft = $(template(tpl.tpl_book_left_part, {data: cacheService.get(cacheServiceDataPath)[currentId]}));
-            var newRight = $(template(tpl.tpl_book_right_part, {data: cacheService.get(cacheServiceDataPath)[currentId]}));
+            var newLeft = $(template(tpl.tpl_book_left_part, cacheService.get(cacheServiceDataPath)[currentId]));
+            var newRight = $(template(tpl.tpl_book_right_part, cacheService.get(cacheServiceDataPath)[currentId]));
             var oldLeft = $(".j-book-content").find(".j-book-left-part");
             var oldRight = $(".j-book-content").find(".j-book-right-part");
             if(arrow > 0) {
@@ -72,7 +72,7 @@
 
         var __findNext = function() {
             var index = cacheIdToIndex[currentId];
-            if(index == itemLength) {
+            if(index == itemLength - 1) {
                 return cacheIndexToId[0];
             } else {
                 return cacheIndexToId[index + 1];
@@ -123,7 +123,7 @@
         };
 
         var _changeImgSize = function() {
-            $(".j-book-content .j-book-left-img").height($(window).height());
+           // $(".j-book-content .j-book-left-img").height($(window).height());
         };
 
         $(window).resize(function() {

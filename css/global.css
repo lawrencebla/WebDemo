@@ -169,6 +169,9 @@ a,input{
 	border-bottom-color: rgb(29, 203, 244);
 }
 /*page common css*/
+.j-takagism-wrapper.ui-tabs{
+	position: initial;
+}
 .ui-tabs .ui-tabs-nav li.ui-tabs-active{
 	padding:0;
 	margin:0;
@@ -347,6 +350,9 @@ a,input{
 	border: 1px solid #aaa;
 	background: transparent;
 	height: 110px;
+	font-size: 18px;
+	color: #fff;
+	line-height: 25px;
 }
 .right-side .j-post-comment{
 	text-align: right;
@@ -361,11 +367,184 @@ a,input{
 	color: #383737;
 	line-height: 30px;
 }
-
-
-
-
-
+/*pop page*/
+#float_overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: none;
+	background: url('../js/images/wood.jpg');
+	padding-left: 256px;
+}
+#float_overlay.active {
+	display: -webkit-box;
+	display: flex;
+}
+#float_overlay .button-wrapper{
+	display: -webkit-box;
+	-webkit-box-align: center;
+	display: flex;
+	align-items: center;
+}
+#float_overlay .content-wrapper{
+	-webkit-box-flex: 1;
+	flex: 1;
+	background: url('../js/images/book.jpg') no-repeat 0 0 / 100% 100%;
+	padding: 24px;
+	display: -webkit-box;
+	display: flex;
+}
+#float_overlay button.prev, #float_overlay button.next{
+	padding: 27px 10px;
+	border-radius: 2px;
+	background: -webkit-linear-gradient(top, #3e3e3e, #333);
+	background: -ms-linear-gradient(top, #3e3e3e, #333);
+	border: 1px solid #191919;
+}
+#float_overlay button.prev::before, #float_overlay button.next::before{
+	font: normal 23px/1 'fontello';
+	display: block;
+	color: #DDD;
+}
+#float_overlay button.prev::before{
+	content: '\e803';
+}
+#float_overlay button.next::before{
+	content: '\e804';
+}
+#float_overlay .content-wrapper {
+	-webkit-box-flex: 1;
+	flex: 1;
+	background: url('../js/images/book.jpg') no-repeat 0 0 / 100% 100%;
+	padding: 24px;
+	display: -webkit-box;
+	display: flex;
+}
+#float_overlay .content {
+	-webkit-box-flex: 1;
+	flex: 1;
+	position: relative;
+	perspective: 900px;
+	-webkit-perspective: 900px;
+}
+#float_overlay .right {
+	right: 0;
+	-webkit-transform-origin: left;
+	transform-origin: left;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	display: flex;
+	flex-direction: column;
+}
+#float_overlay .left {
+	left: 0;
+	-webkit-transform-origin: right;
+	transform-origin: right;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#float_overlay .left, #float_overlay .right {
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	overflow: hidden;
+	backface-visibility: hidden;
+	transition: transform 1.2s;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 1.2s;
+}
+#float_overlay .left::before, #float_overlay .right::before {
+	content: '';
+	z-index: -1;
+	position: absolute;
+	left: -24px;
+	top: -24px;
+	right: 0;
+	bottom: -24px;
+	background: #000 url('../js/images/book.jpg') no-repeat 0 0 / 200% 100%;
+}
+#float_overlay .right::before {
+	left: 0;
+	right: -24px;
+	background-position: right;
+}
+#float_overlay .left .j-book-left-img {
+	width: 398.4px;
+	display: block;
+	padding: 4px;
+	box-shadow: 0 0 6px #000;
+	height: auto;
+}
+#float_overlay .book-img-container{
+	position: relative;
+}
+#float_overlay .left .logo {
+	position: absolute;
+	left: 8px;
+	top: 8px;
+}
+#float_overlay .right h1 {
+	text-align: center;
+	font: bold 32px/2em '';
+	margin: 0 0 12px;
+}
+#float_overlay .right .options {
+	list-style: none;
+	font: bold 13px/2em '';
+	margin: 0;
+}
+#float_overlay .right .options span {
+	display: inline-block;
+	width: 4em;
+}
+#float_overlay .right h2 {
+	font: bold 20px/3.2em '';
+	margin: 0 20px;
+}
+#float_overlay .right p {
+	font: normal 16px/2em '';
+	margin: 0 2em;
+	min-height: 8em;
+	white-space: pre-wrap;
+	flex: 1;
+	-webkit-box-flex: 1;
+	overflow-y: auto;
+	background: rgba(82, 83, 59, 0.1);
+	padding: 0 12px;
+	scrollbar-face-color: #444;
+	scrollbar-track-color: #e4d3ac;
+	word-wrap: break-word;
+}
+#float_overlay .right p::-webkit-scrollbar {
+	width: 11px;
+	background: -webkit-linear-gradient(top, #444, #444) no-repeat 5px 0;
+	background-size: 1px 100%;
+}
+#float_overlay .right p::-webkit-scrollbar-thumb {
+	background: #444;
+	background-clip: content-box;
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-radius: 5px;
+}
+#float_overlay .right .imgs {
+	list-style: none;
+	margin: 20px 30px 0;
+	padding: 0;
+	display: -webkit-box;
+	display: flex;
+}
+#float_overlay .right .imgs img {
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+	margin: 6px;
+}
 
 
 
