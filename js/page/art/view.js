@@ -3,10 +3,12 @@
     var view = require("core/mvc/view");
 
     var topic_center = require("topic/topic_center");
+    var config = require("config/config");
     var util = require("util/util");
+    var url = require("util/url");
 
     var gallery = require("widget/gallery/gallery");
-    var picturePop = require("widget/popup/picture/picture");
+    var generalPopup = require("widget/popup/general/general");
 
     var cache = {
         tab: {}
@@ -14,7 +16,8 @@
 
     module.exports = view.extend({
         tpl: {
-            tpl_art: "tpl_art"
+            tpl_art: "tpl_art",
+            tpl_popup_picture_item: "tpl_popup_picture_item"
         },
         render: function() {
             this.flowController();
@@ -61,7 +64,12 @@
         showData: function(data, params) {
             new gallery(this.$el.find("#" + params.tabId), {galleryClass: "art-gallery"}).start(data);
             var options = {};
-            new picturePop(this.$el.find(".art-gallery"), options);
+            new generalPopup(this.$el.find(".art-gallery"), {
+                tpl_popup_content_item: this.tpl.tpl_popup_picture_item,
+                cacheServiceDataPath: url.addParameters(config.apiPath.loadArtData, "type", params.type),
+                childrenSelector: ".j-gallery-item",
+                customClass: "picture-popup"
+            });
         },
         showMsg: function() {
         },

@@ -4,13 +4,15 @@
 
     var topic_center = require("topic/topic_center");
     var util = require("util/util");
+    var config = require("config/config");
 
     var gallery = require("widget/gallery/gallery");
-    var picturePop = require("widget/popup/picture/picture");
+    var generalPopup = require("widget/popup/general/general");
 
     module.exports = view.extend({
         tpl: {
-            tpl_home: "tpl_home"
+            tpl_home: "tpl_home",
+            tpl_popup_picture_item: "tpl_popup_picture_item"
         },
         render: function() {
             this.flowController();
@@ -61,8 +63,12 @@
                 nextItem.show();
             });
             new gallery(this.$el.find(".j-home-wrapper"), {children: ".j-home-main-list"}).start();
-            var options = {};
-            new picturePop(this.$el.find(".home-gallery"), options);
+            new generalPopup(this.$el.find(".home-gallery"), {
+                tpl_popup_content_item: this.tpl.tpl_popup_picture_item,
+                cacheServiceDataPath: config.apiPath.loadHomeData,
+                childrenSelector: ".j-gallery-item-home",
+                customClass: "picture-popup"
+            });
         },
         showMsg: function() {
             //console.log("showMsg");

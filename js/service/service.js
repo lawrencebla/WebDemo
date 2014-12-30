@@ -5,12 +5,22 @@
     var topic_center = require("topic/topic_center");
     var cacheService = require("service/cache_service");
     var util = require("util/util");
+    var url = require("util/url");
 
     var service = (function() {
 
         return {
             loadHomeData: function(success, error) {
-                ajax.get(config.apiPath.loadHomeData, {}, success, error);
+                ajax.get(config.apiPath.loadHomeData, {}, function(data) {
+                    success(data);
+                    if(util.hasInfoData(data)) {
+                        var encodingData = {};
+                        $.each(data.info, function(i, item) {
+                            encodingData[item.id] = item;
+                        });
+                        cacheService.add(config.apiPath.loadHomeData, encodingData);
+                    }
+                }, error);
             },
 
             loadSubjectData: function(success, error) {
@@ -27,11 +37,29 @@
             },
 
             loadArtData: function(type, success, error) {
-                ajax.get(config.apiPath.loadArtData, {type: type}, success, error);
+                ajax.get(config.apiPath.loadArtData, {type: type}, function(data) {
+                    success(data);
+                    if(util.hasInfoData(data)) {
+                        var encodingData = {};
+                        $.each(data.info, function(i, item) {
+                            encodingData[item.id] = item;
+                        });
+                        cacheService.add(url.addParameters(config.apiPath.loadArtData, "type", type), encodingData);
+                    }
+                }, error);
             },
 
             loadCommonwealData: function(type, success, error) {
-                ajax.get(config.apiPath.loadCommonwealData, {type: type}, success, error);
+                ajax.get(config.apiPath.loadCommonwealData, {type: type}, function(data) {
+                    success(data);
+                    if(util.hasInfoData(data)) {
+                        var encodingData = {};
+                        $.each(data.info, function(i, item) {
+                            encodingData[item.id] = item;
+                        });
+                        cacheService.add(url.addParameters(config.apiPath.loadCommonwealData, "type", type), encodingData);
+                    }
+                }, error);
             },
 
             loadCommentData: function(success, error) {

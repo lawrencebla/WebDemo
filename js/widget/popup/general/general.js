@@ -1,4 +1,4 @@
-;define("widget/popup/acticle/acticle", function(require, exports, module) {
+;define("widget/popup/general/general", function(require, exports, module) {
 
     var template = require("gen/template");
     var cacheService = require("service/cache_service");
@@ -9,14 +9,13 @@
         var currentId = "";
         var itemLength = 0;
         var tpl = {
-            tpl_popup_acticle: "tpl_popup_acticle",
-            tpl_popup_acticle_item: "tpl_popup_acticle_item"
+            tpl_popup_general: "tpl_popup_general"
         };
         var cacheIndexToId = {};
         var cacheIdToIndex = {};
 
         var __renderPage = function(arrow) {
-            $(".j-popup-content").find(".j-popup-content-item").html(template(options.tpl_popup_acticle_item, cacheService.get(options.cacheServiceDataPath)[currentId]));
+            $(".j-popup-content").find(".j-popup-content-item").html(template(options.tpl_popup_content_item, cacheService.get(options.cacheServiceDataPath)[currentId]));
         };
 
         var __renderPrev = function() {
@@ -40,7 +39,7 @@
 
         var __findNext = function() {
             var index = cacheIdToIndex[currentId];
-            if(index == itemLength) {
+            if(index == itemLength - 1) {
                 return cacheIndexToId[0];
             } else {
                 return cacheIndexToId[index + 1];
@@ -62,11 +61,11 @@
         var _open = function(item) {
             if(options.cacheServiceDataPath) {
                 currentId = $(item).attr("data-id");
-                $(".j-takagism-wrapper").append(template(tpl.tpl_popup_acticle));
+                $(".j-takagism-wrapper").append(template(tpl.tpl_popup_general, {customClass: options.customClass}));
                 __renderPage(1);
                 _changeImgSize();
 
-                $("j-popup-content").find(".j-prev-button").click(function () {
+                $(".j-popup-content").find(".j-prev-button").click(function () {
                     __renderPrev();
                 });
                 $(".j-popup-content").find(".j-next-button").click(function () {
@@ -79,7 +78,7 @@
                 });
 
                 $("a").bind("click.acticle", function (e) {
-                    if ($.contains($(".j-popup-content"), e.target)) {
+                    if (!$.contains($(".j-popup-content"), e.target)) {
                         _close();
                     }
                 });
@@ -93,7 +92,16 @@
             }
         };
 
-        $.each(el.find(".j-acticle-item"), function(i, item) {
+        var _changeImgSize = function() {
+            el.find(".j-popup-general-content-img").height($(window).height());
+        };
+
+        $(window).resize(function() {
+            _changeImgSize();
+        });
+
+
+        $.each(el.find(options.childrenSelector), function(i, item) {
             _addToCache(i, item);
             $(item).click(function() {
                 _bindItemClick(this);

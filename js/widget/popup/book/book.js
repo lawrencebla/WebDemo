@@ -109,7 +109,7 @@
             });
 
             $("a").bind("click.book", function(e) {
-                if($.contains($(".j-book-content"), e.target)) {
+                if(!$.contains($(".j-book-content"), e.target)) {
                     _close();
                 }
             });
