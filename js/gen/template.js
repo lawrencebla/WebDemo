@@ -164,12 +164,13 @@
     }), /*v:4*/
     template("tpl_home", '<div class="j-home-wrapper overlay"> <ul class="j-gallery-wrapper"> <li class="j-home-main-list home-no-link-list"> <img src="js/test_data/img/s.jpg"/> <span> </span> </li> <li class="j-home-main-list home-no-link-list"> <img src="js/test_data/img/s.jpg"/> <span> </span> </li> <li class="j-home-main-list home-no-link-list"> <img src="js/test_data/img/s.jpg"/> <span> </span> </li> <li class="j-home-main-list j-home-activity-list home-no-link-list"> <a href="javascript:void(0)" class="j-home-activity-list-left arrow left-arrow"><</a> <ul class="gallery lb-album home-gallery"> <li class="j-gallery-item-home" data-src="js/test_data/img/m.jpg"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动 </span> </a> </li> <li class="j-gallery-item-home" data-src="js/test_data/img/m.jpg" style="display:none;"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动1 </span> </a> </li> <li class="j-gallery-item-home" data-src="js/test_data/img/m.jpg" style="display:none;"> <a href="javascript:void(0)"> <img src="js/test_data/img/s.jpg"/> <span> 近期活动2 </span> </a> </li> </ul> <a href="javascript:void(0)" class="j-home-activity-list-right arrow right-arrow">></a> </li> </ul> </div>'), 
     /*v:1*/
-    template("tpl_popup_acticle", function($data) {
+    template("tpl_popup_acticle_item", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), picturePath = $data.picturePath, name = $data.name, attach = $data.attach, content = $data.content, $out = "";
-        return $out += '<div> <div><img src="', $out += $escape(picturePath), $out += '"/></div> <div> <div>', 
-        $out += $escape(name), $out += $escape(attach), $out += ":</div> <div>", $out += $escape(content), 
-        $out += "</div> </div> </div>", new String($out);
+        return $out += '<div><img class="j-acticle-img j-popup-general-content-img" src="', 
+        $out += $escape(picturePath), $out += '"/></div> <div> <div>', $out += $escape(name), 
+        $out += $escape(attach), $out += ":</div> <div>", $out += $escape(content), $out += "</div> </div>", 
+        new String($out);
     }), /*v:1*/
     template("tpl_popup_book", function($data) {
         "use strict";
@@ -178,6 +179,18 @@
         $out += $escape(name), $out += "</div> <div>难度: ", $out += $escape(level), $out += "</div> <div>情节: ", 
         $out += $escape(plot), $out += "</div> <div>趣味: ", $out += $escape(interest), $out += "</div> <div>主题介绍</div> <div>", 
         $out += $escape(content), $out += "</div> </div> </div>", new String($out);
+    }), /*v:1*/
+    template("tpl_popup_general", function($data) {
+        "use strict";
+        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), customClass = $data.customClass, $out = "";
+        return $out += '<div class="j-popup-content ', $out += $escape(customClass), $out += '"> <div class="button-wrapper"> <button class="prev j-prev-button" title="上一个"></button> </div> <div class="j-popup-content-item"> </div> <div class="button-wrapper"> <button class="next j-next-button" title="下一个"></button> </div> <button class="close j-close-book-button" title="关闭"></button> </div>', 
+        new String($out);
+    }), /*v:1*/
+    template("tpl_popup_picture_item", function($data) {
+        "use strict";
+        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), largeImgPath = $data.largeImgPath, $out = "";
+        return $out += '<img class="j-popup-picture-item-img j-popup-general-content-img" src="', 
+        $out += $escape(largeImgPath), $out += '">', new String($out);
     }), /*v:3*/
     template("tpl_subject", '<ul class="sub-page-top-menue"> <li class="tab"><a href="javascript:void(0)" class="j-all-link active">全部</a></li> <li class="tab"><a href="javascript:void(0)" class="j-escape-link">密室主题</a></li> <li class="tab"><a href="javascript:void(0)" class="j-detective-link">侦探主题</a></li> <li class="tab"><a href="javascript:void(0)" class="j-rpg-link">真人RPG</a></li> </ul> <div class="j-subject-content"></div>'), 
     /*v:5*/
