@@ -179,11 +179,11 @@
         $out += $escape(name), $out += "</div> <div>难度: ", $out += $escape(level), $out += "</div> <div>情节: ", 
         $out += $escape(plot), $out += "</div> <div>趣味: ", $out += $escape(interest), $out += "</div> <div>主题介绍</div> <div>", 
         $out += $escape(content), $out += "</div> </div> </div>", new String($out);
-    }), /*v:1*/
+    }), /*v:4*/
     template("tpl_popup_general", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), customClass = $data.customClass, $out = "";
-        return $out += '<div class="j-popup-content ', $out += $escape(customClass), $out += '"> <div class="button-wrapper"> <button class="prev j-prev-button" title="上一个"></button> </div> <div class="j-popup-content-item"> </div> <div class="button-wrapper"> <button class="next j-next-button" title="下一个"></button> </div> <button class="close j-close-book-button" title="关闭"></button> </div>', 
+        return $out += '<div class="j-popup-content ', $out += $escape(customClass), $out += ' overlay big-popup"> <div class="content"> <div class="j-prev-button arrow left-arrow" title="上一个"></div> <div class="j-popup-content-item"> </div> <div class="j-next-button arrow right-arrow" title="下一个"></div> <div class="close j-close-book-button" title="关闭"></div> </div> </div>', 
         new String($out);
     }), /*v:1*/
     template("tpl_popup_picture_item", function($data) {

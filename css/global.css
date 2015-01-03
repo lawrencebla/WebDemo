@@ -545,7 +545,53 @@ a,input{
 	cursor: pointer;
 	margin: 6px;
 }
-
+.big-popup{
+	z-index: 10;
+	left: 255px;
+	background: rgba(0, 0, 0, 0.6);
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+}
+.picture-popup{
+	padding-left: 60px;
+	padding-top: 30px;
+}
+.picture-popup .content{
+	position: relative;
+	width: 855px;
+	height: 625px;
+}
+.picture-popup .content img{
+	width: 855px;
+	max-height: 625px;
+}
+.big-popup .arrow{
+	position: absolute;
+	top: 50%;
+	margin-top: -42px;
+}
+.big-popup .left-arrow{
+	left:0;
+	width:46px;
+	height:84px;
+	display:inline-block;
+	background:url("../js/images/left-arrow.jpg") no-repeat center center;
+}
+.big-popup .right-arrow{
+	right:0;
+	width:46px;
+	height:84px;
+	display:inline-block;
+	background:url("../js/images/right-arrow.jpg") no-repeat center center;
+}
+.big-popup .close{
+	position: absolute;
+	width:52px;
+	height:46px;
+	display:inline-block;
+	top: 0;
+	right: 0;
+	background:url("../js/images/close-icon.jpg") no-repeat center center;
+}
 
 
 
