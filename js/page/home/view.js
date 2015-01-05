@@ -51,7 +51,7 @@
                     prevItem = currentItem.nextAll(".j-gallery-item-home:last");
                 }
                 currentItem.hide();
-                prevItem.show();
+                prevItem.css("display", "block");
             });
             activityList.find(".j-home-activity-list-right").click(function() {
                 var currentItem = activityList.find(".j-gallery-item-home:visible");
@@ -60,7 +60,7 @@
                     nextItem = currentItem.prevAll(".j-gallery-item-home:last");
                 }
                 currentItem.hide();
-                nextItem.show();
+                nextItem.css("display", "block");
             });
             new gallery(this.$el.find(".j-home-wrapper"), {children: ".j-home-main-list"}).start();
             new generalPopup(this.$el.find(".home-gallery"), {

@@ -216,6 +216,24 @@ a,input{
 .j-home-activity-list .arrow{
 	position:absolute;
 }
+.j-home-activity-list .left-arrow{
+	width:35px;
+	height:72px;
+	top: 50%;
+	left: 20px;
+	margin-top:-36px;
+	z-index: 1;
+	background:url("../js/images/sm-left-arrow.jpg") no-repeat center center;
+}
+.j-home-activity-list .right-arrow{
+	width:35px;
+	height:72px;
+	top: 50%;
+	right:20px;
+	margin-top:-36px;
+	z-index: 1;
+	background:url("../js/images/sm-right-arrow.jpg") no-repeat center center;
+}
 .j-home-activity-list .home-gallery{
 	width: 100%;
 	height: 100%;
@@ -226,8 +244,21 @@ a,input{
 .j-home-activity-list .lb-album{
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	position: initial;
 	margin: 0;
+	padding: 0px;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+.j-home-activity-list .lb-album li{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+.j-home-activity-list .lb-album li > a{
+	width: 100%;
+	height: 100%;
 	padding: 0;
 }
 .lb-album li > a img{
@@ -572,12 +603,53 @@ a,input{
 	cursor: pointer;
 	margin: 6px;
 }
+#float_overlay .close{
+	position: absolute;
+	width:31px;
+	height:26px;
+	display:inline-block;
+	top: 0;
+	right: 0;
+	background:url("../js/images/book-close.jpg") no-repeat center center;
+	cursor:pointer;
+}
 .big-popup{
 	z-index: 10;
-	left: 255px;
+	left: 256px;
 	background: rgba(0, 0, 0, 0.6);
 	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
     background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+}
+.big-popup .arrow{
+	position: absolute;
+	top: 50%;
+	margin-top: -42px;
+}
+.big-popup .left-arrow{
+	left:0;
+	width:46px;
+	height:84px;
+	display:inline-block;
+	background:url("../js/images/left-arrow.jpg") no-repeat center center;
+	cursor:pointer;
+}
+.big-popup .right-arrow{
+	right:0;
+	width:46px;
+	height:84px;
+	display:inline-block;
+	background:url("../js/images/right-arrow.jpg") no-repeat center center;
+	cursor:pointer;
+}
+.big-popup .close{
+	position: absolute;
+	width:52px;
+	height:46px;
+	display:inline-block;
+	top: 0;
+	right: 0;
+	background:url("../js/images/close-icon.jpg") no-repeat center center;
+	cursor:pointer;
 }
 .picture-popup{
 	padding-left: 60px;
@@ -592,35 +664,44 @@ a,input{
 	width: 855px;
 	max-height: 625px;
 }
-.big-popup .arrow{
-	position: absolute;
-	top: 50%;
-	margin-top: -42px;
+.article-popup{
+	padding-left: 20px;
+	padding-top: 80px;
+	background: #000;
 }
-.big-popup .left-arrow{
-	left:0;
-	width:46px;
-	height:84px;
-	display:inline-block;
-	background:url("../js/images/left-arrow.jpg") no-repeat center center;
+.article-popup .content{
+	position: relative;
+	width: 920px;
+	height: 530px;
 }
-.big-popup .right-arrow{
-	right:0;
-	width:46px;
-	height:84px;
-	display:inline-block;
-	background:url("../js/images/right-arrow.jpg") no-repeat center center;
+.article-popup .popup-content-item{
+	width: 920px;
+	height: 530px;
+	background: #232323;
 }
-.big-popup .close{
-	position: absolute;
-	width:52px;
-	height:46px;
-	display:inline-block;
-	top: 0;
-	right: 0;
-	background:url("../js/images/close-icon.jpg") no-repeat center center;
+.article-popup .left-pic{
+	width: 460px;
+	height: 530px;
+	padding-right: 48px;
 }
-
+.article-popup .left-pic img{
+	width: 460px;
+	height: 530px;
+}
+.article-popup .right-text{
+	width: 390px;
+	color: #fff;
+	padding: 30px 0;
+}
+.article-popup .sub-title{
+ 	font-size: 24px;
+	padding-bottom: 30px;
+}
+.article-popup .sub-content{
+	font-size: 18px;
+	line-height: 30px;
+	text-indent: 34px;
+}
 
 
 
