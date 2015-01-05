@@ -2,6 +2,8 @@
 
     var template = require("gen/template");
 
+    var TRANSFORM = require("util/browser_adaptor");
+
     var tpls = {
         tpl_gallery_wrapper: "tpl_gallery_wrapper",
         tpl_gallery_list: "tpl_gallery_list"
@@ -41,7 +43,7 @@
         // 分类
         var _filter = function(selector) {
             self.children.hide();
-            self.children.css("-webkit-transform", "translate3d(0, 0, 0)");
+            self.children.css(TRANSFORM, "translate3d(0, 0, 0)");
             self.children.filter(selector).show();
             _calcItemSize(_getRowsNum());
             _calcItemPosition(_getRowsNum());
@@ -97,7 +99,7 @@
             var row = 0;
             var col = 0;
             $.each(self.children.filter(":visible"), function(i, item) {
-                $(item).css("-webkit-transform", "translate3d(" + parseInt(i/rowsNum) + "00%, " + i%rowsNum + "00%, 0px)");
+                $(item).css(TRANSFORM, "translate3d(" + parseInt(i/rowsNum) + "00%, " + i%rowsNum + "00%, 0px)");
             });
         };
 

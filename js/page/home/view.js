@@ -42,7 +42,7 @@
         },
 
         showData: function(data) {
-            this.$el.append(this.template(this.tpl.tpl_home));
+            this.$el.append(this.template(this.tpl.tpl_home, data));
             var activityList = $(".j-home-activity-list");
             activityList.find(".j-home-activity-list-left").click(function() {
                 var currentItem = activityList.find(".j-gallery-item-home:visible");

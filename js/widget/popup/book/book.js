@@ -3,6 +3,7 @@
     var template = require("gen/template");
     var cacheService = require("service/cache_service");
     var config = require("config/config");
+    var TRANSFORM = require("util/browser_adaptor");
 
     module.exports = function(el, options) {
         var cacheServiceDataPath = config.apiPath.loadSubjectData;
@@ -16,32 +17,38 @@
         var cacheIndexToId = {};
         var cacheIdToIndex = {};
 
+        var __removeOldPage = function(callback, oldLeft, oldRight) {
+            callback(function() {
+                oldLeft.remove();
+                oldRight.remove();
+            }, oldLeft, oldRight);
+        };
+
         var __renderPage = function(arrow) {
-            var newLeft = $(template(tpl.tpl_book_left_part, cacheService.get(cacheServiceDataPath)[currentId]));
-            var newRight = $(template(tpl.tpl_book_right_part, cacheService.get(cacheServiceDataPath)[currentId]));
-            var oldLeft = $(".j-book-content").find(".j-book-left-part");
-            var oldRight = $(".j-book-content").find(".j-book-right-part");
+            var newLeft = $(template(tpl.tpl_book_left_part, cacheService.get(cacheServiceDataPath)[currentId])).addClass('j-new-page');
+            var newRight = $(template(tpl.tpl_book_right_part, cacheService.get(cacheServiceDataPath)[currentId])).addClass('j-new-page');
+            var oldLeft = $(".j-book-content").find(".j-book-left-part").removeClass('j-new-page');
+            var oldRight = $(".j-book-content").find(".j-book-right-part").removeClass('j-new-page');
             if(arrow > 0) {
-                newLeft.css("-webkit-transform", "rotateY(180deg)");
+                newLeft.css(TRANSFORM, "rotateY(180deg)");
                 oldRight.before(newRight);
                 oldLeft.after(newLeft);
                 oldRight.addClass('rotating');
-
-                setTimeout(function () {
-                    oldRight.css("-webkit-transform", 'rotateY(-180deg)');
-                    newLeft.css("-webkit-transform", 'rotateY(0deg)');
+                __removeOldPage(function (removeFunc, oldLeft, oldRight) {
+                    oldRight.css(TRANSFORM, 'rotateY(-180deg)');
+                    newLeft.css(TRANSFORM, 'rotateY(0deg)');
                     setTimeout(function () {
-                        oldLeft.remove();
-                        oldRight.remove();
+                        console.log('next');
+                        removeFunc();
                     }, 1200);
-                });
+                }, oldLeft, oldRight);
             } else {
-                newRight.css("-webkit-transform", "rotateY(-180deg)");
+                newRight.css(TRANSFORM, "rotateY(-180deg)");
                 oldLeft.before(newRight).before(newLeft);
 
                 setTimeout(function () {
-                    oldLeft.css("-webkit-transform", 'rotateY(180deg)');
-                    newRight.css("-webkit-transform", 'rotateY(0deg)');
+                    oldLeft.css(TRANSFORM, 'rotateY(180deg)');
+                    newRight.css(TRANSFORM, 'rotateY(0deg)');
                     setTimeout(function () {
                         newRight.removeClass('rotating');
                         oldLeft.remove();

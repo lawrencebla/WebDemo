@@ -18,30 +18,27 @@
         <li class="j-home-main-list j-home-activity-list home-no-link-list">
             <a href="javascript:void(0)" class="j-home-activity-list-left arrow left-arrow"><</a>
             <ul class="gallery lb-album home-gallery">
-                <li class="j-gallery-item-home" data-src="js/test_data/img/m.jpg">
+                <%
+                if(info && info.length) {
+                    for(var i = 0; i < info.length; i++) {
+                        var e = info[i];
+                        var displayStyle = "display:block;";
+                        if(i != 0) {
+                            displayStyle = "display:none;";
+                        }
+                %>
+                <li class="j-gallery-item-home" style="<%=displayStyle%>" data-src="<%=e.largeImgPath%>" data-id="<%=e.id%>">
                     <a href="javascript:void(0)">
-                        <img src="js/test_data/img/s.jpg"/>
+                        <img src="<%=e.smallImgPath%>"/>
                         <span>
-                            近期活动
+                            <%=e.name%>
                         </span>
                     </a>
                 </li>
-                <li class="j-gallery-item-home" data-src="js/test_data/img/m.jpg" style="display:none;">
-                    <a href="javascript:void(0)">
-                        <img src="js/test_data/img/s.jpg"/>
-                        <span>
-                            近期活动1
-                        </span>
-                    </a>
-                </li>
-                <li class="j-gallery-item-home" data-src="js/test_data/img/m.jpg" style="display:none;">
-                    <a href="javascript:void(0)">
-                        <img src="js/test_data/img/s.jpg"/>
-                        <span>
-                            近期活动2
-                        </span>
-                    </a>
-                </li>
+                <%
+                    }
+                }
+                %>
             </ul>
             <a href="javascript:void(0)" class="j-home-activity-list-right arrow right-arrow">></a>
         </li>
