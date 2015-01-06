@@ -5,6 +5,8 @@
     var config = require("config/config");
     var TRANSFORM = require("util/browser_adaptor");
 
+    var animationing = false;
+
     module.exports = function(el, options) {
         var cacheServiceDataPath = config.apiPath.loadSubjectData;
         var currentId = "";
@@ -38,8 +40,10 @@
                     oldRight.css(TRANSFORM, 'rotateY(-180deg)');
                     newLeft.css(TRANSFORM, 'rotateY(0deg)');
                     setTimeout(function () {
-                        console.log('next');
-                        removeFunc();
+                        oldLeft.remove();
+                        oldRight.remove();
+                        animationing = false;
+                        //removeFunc();
                     }, 1200);
                 }, oldLeft, oldRight);
             } else {
@@ -53,6 +57,7 @@
                         newRight.removeClass('rotating');
                         oldLeft.remove();
                         oldRight.remove();
+                        animationing = false;
                     }, 1200);
                 });
             }
@@ -104,9 +109,17 @@
             _changeImgSize();
 
             $(".j-book-content").find(".j-prev-button").click(function() {
+                if(animationing) {
+                    return;
+                }
+                animationing = true;
                 __renderPrev();
             });
             $(".j-book-content").find(".j-next-button").click(function() {
+                if(animationing) {
+                    return;
+                }
+                animationing = true;
                 __renderNext();
             });
             $(".j-book-content").find(".j-close-book-button").click(function() {

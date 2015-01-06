@@ -7,7 +7,8 @@
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
-                commonwealDone: false
+                commonwealDone: false,
+                content: "123"
             },
             {
                 id: "2",
@@ -18,49 +19,56 @@
                 plot: "1",
                 interest: "1",
                 content: "content",
-                commonwealDone: true
+                commonwealDone: true,
+                content: "123"
             },
             {
                 id: "3",
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
-                commonwealDone: true
+                commonwealDone: true,
+                content: "123"
             },
             {
                 id: "4",
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
-                commonwealDone: true
+                commonwealDone: true,
+                content: "123"
             },
             {
                 id: "5",
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
-                commonwealDone: true
+                commonwealDone: true,
+                content: "123"
             },
             {
                 id: "6",
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
-                commonwealDone: true
+                commonwealDone: true,
+                content: "123"
             },
             {
                 id: "7",
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
-                commonwealDone: true
+                commonwealDone: true,
+                content: "123"
             },
             {
                 id: "8",
                 name: "test1",
                 smallImgPath: "js/test_data/img/s.jpg",
                 largeImgPath: "js/test_data/img/o.jpg",
-                commonwealDone: false
+                commonwealDone: false,
+                content: "123"
             }
         ]
     };

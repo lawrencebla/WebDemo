@@ -80,7 +80,7 @@
     }) : "undefined" != typeof exports ? module.exports = template : this.template = template, 
     /*v:2*/
     template("tpl_art", '<ul class="sub-page-top-menue"> <li class="tab"><a href="#arder">休闲娱乐区</a></li> <li class="tab"><a href="#artwork">艺术品展示</a></li> </ul> <div id="arder" class="j-arder-content"> </div> <div id="artwork" class="j-artwork-content"> </div>'), 
-    /*v:2*/
+    /*v:5*/
     template("tpl_book", function($data, $filename) {
         "use strict";
         var $utils = this, include = ($utils.$helpers, function(filename, data) {
@@ -92,14 +92,14 @@
         include("./tpl_book_right_part", data), $out += " ", include("./tpl_book_left_part", data), 
         $out += ' </div> </div> <div class="button-wrapper"> <button class="next j-next-button" title="下一个"></button> </div> <div class="close j-close-book-button" title="关闭"></div> </div>', 
         new String($out);
-    }), /*v:3*/
+    }), /*v:4*/
     template("tpl_book_left_part", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), largeImgPath = $data.largeImgPath, $out = "";
         return $out += '<div class="left j-book-left-part"> <div class="book-img-container"> <img class="j-book-left-img" src="', 
         $out += $escape(largeImgPath), $out += '"> <img class="logo" src="js/images/logo.jpg" style="width:70px;"/> </div> </div>', 
         new String($out);
-    }), /*v:2*/
+    }), /*v:5*/
     template("tpl_book_right_part", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), name = $data.name, i = $data.i, level = $data.level, plot = $data.plot, interest = $data.interest, content = $data.content, largeImgPath = $data.largeImgPath, $out = "";
@@ -111,7 +111,7 @@
         for (var i = 0; 1 * interest > i; i++) $out += "★";
         return $out += " </li> </ul> <h2>主题介绍：</h2> <p>", $out += $escape(content), $out += '</p> <ul class="imgs"> <li> <img src="', 
         $out += $escape(largeImgPath), $out += '"/> </li> </ul> </div>', new String($out);
-    }), /*v:4*/
+    }), /*v:2*/
     template("tpl_comment", function($data, $filename) {
         "use strict";
         var $utils = this, info = ($utils.$helpers, $data.info), i = $data.i, include = function(filename, data) {
@@ -161,7 +161,7 @@
         $out += '"> ', include("./tpl_gallery_list", {
             info: info
         }), $out += " </ul>", new String($out);
-    }), /*v:6*/
+    }), /*v:13*/
     template("tpl_home", function($data) {
         "use strict";
         var $utils = this, info = ($utils.$helpers, $data.info), i = $data.i, e = $data.e, displayStyle = $data.displayStyle, $escape = $utils.$escape, $out = "";
@@ -179,9 +179,9 @@
     }), /*v:3*/
     template("tpl_popup_acticle_item", function($data) {
         "use strict";
-        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), picturePath = $data.picturePath, name = $data.name, attach = $data.attach, content = $data.content, $out = "";
+        var $utils = this, $escape = ($utils.$helpers, $utils.$escape), largeImgPath = $data.largeImgPath, name = $data.name, attach = $data.attach, content = $data.content, $out = "";
         return $out += '<div class="l left-pic"><img class="j-acticle-img j-popup-general-content-img" src="', 
-        $out += $escape(picturePath), $out += '"/></div> <div class="l right-text"> <div class="sub-title">', 
+        $out += $escape(largeImgPath), $out += '"/></div> <div class="l right-text"> <div class="sub-title">', 
         $out += $escape(name), $out += $escape(attach), $out += ':</div> <div class="sub-content">', 
         $out += $escape(content), $out += "</div> </div>", new String($out);
     }), /*v:1*/
@@ -192,22 +192,22 @@
         $out += $escape(name), $out += "</div> <div>难度: ", $out += $escape(level), $out += "</div> <div>情节: ", 
         $out += $escape(plot), $out += "</div> <div>趣味: ", $out += $escape(interest), $out += "</div> <div>主题介绍</div> <div>", 
         $out += $escape(content), $out += "</div> </div> </div>", new String($out);
-    }), /*v:6*/
+    }), /*v:5*/
     template("tpl_popup_general", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), customClass = $data.customClass, $out = "";
         return $out += '<div class="j-popup-content ', $out += $escape(customClass), $out += ' overlay big-popup"> <div class="content"> <div class="j-prev-button arrow left-arrow" title="上一个"></div> <div class="j-popup-content-item popup-content-item clearfix"> </div> <div class="j-next-button arrow right-arrow" title="下一个"></div> <div class="close j-close-book-button" title="关闭"></div> </div> </div>', 
         new String($out);
-    }), /*v:1*/
+    }), /*v:2*/
     template("tpl_popup_picture_item", function($data) {
         "use strict";
         var $utils = this, $escape = ($utils.$helpers, $utils.$escape), largeImgPath = $data.largeImgPath, $out = "";
         return $out += '<img class="j-popup-picture-item-img j-popup-general-content-img" src="', 
         $out += $escape(largeImgPath), $out += '">', new String($out);
-    }), /*v:3*/
+    }), /*v:4*/
     template("tpl_subject", '<ul class="sub-page-top-menue"> <li class="tab"><a href="javascript:void(0)" class="j-all-link active">全部</a></li> <li class="tab"><a href="javascript:void(0)" class="j-escape-link">密室主题</a></li> <li class="tab"><a href="javascript:void(0)" class="j-detective-link">侦探主题</a></li> <li class="tab"><a href="javascript:void(0)" class="j-rpg-link">真人RPG</a></li> </ul> <div class="j-subject-content"></div>'), 
-    /*v:5*/
+    /*v:2*/
     template("tpl_summary", '<div class="secret-room-bg overlay" style="background-size: 100%;"> </div> <div class="summary-animation-scroll-wrapper overlay"> <div class="summary-animation-scroll"> <section> <section class="title">公司简介</section> <section> <p>水木迷城文化传播有限公司成立于2013年8月，主要业务为真人实景类游戏的设计、推广与运营。</p> <p>公司旗下位于海淀区的三家直营店自开业以来受到玩家的一致好评。目前公司在北京、河北、浙江、福建、广东、辽宁、吉林、湖北、新疆、内蒙、贵州等地已有二十余家加盟店。</p> <p>除实体店外，水木迷城设计团队已为全国三十多个城市的密室逃脱店面提供了密室游戏设计，并独立开发了主题相关电脑程序、手机app，设计了侦探游戏、真人RPG游戏等多种类型的室内实景游戏，拥有丰富的游戏设计经验。</p> </section> </section> <section class="summary-animation-scroll-bottom"> <section class="title">团队成员</section> <section> <p>CEO: 黄帅</p> <p>CTO: 黄帅</p> <p>CFO: 黄帅</p> <p>UFO: 黄帅</p> </section> </section> </div> </div>'), 
-    /*v:4*/
+    /*v:3*/
     template("tpl_taskagism", '<ul id="menue-overlay" class="j-menue-overlay overlay"> <li class="logo-line"> <img class="logo" src="js/images/logo.jpg"/> <img class="sub-logo" src="js/images/Z02.png"/> </li> <li class="tab"><a href="#home">首页</a></li> <li class="tab"><a href="#subject">主题介绍</a></li> <li class="tab"><a href="#art">艺术休闲吧</a></li> <li class="tab"><a href="#commonweal">筑梦公益墙</a></li> <li class="tab"><a href="#summary">公司简介</a></li> <li class="tab"><a href="#comment">预约及评论</a></li> </ul> <div id="home" class="j-home-content overlay j-tab-content"> <div class="home-bg overlay" style="background-size: 100%;"> <div class="fg-overlay"></div> </div> </div> <div id="subject" class="j-subject-content overlay j-tab-content"> </div> <div id="art" class="j-art-content overlay j-tab-content"> </div> <div id="commonweal" class="j-commonweal-content overlay j-tab-content"> </div> <div id="summary" class="j-summary-content overlay j-tab-content"> </div> <div id="comment" class="j-comment-content overlay j-tab-content"> </div> ');
 }();
