@@ -8,7 +8,8 @@
                 verificationFailed: '3',
                 internalSystemError: '4',
                 userOperatioError: '5'
-            }
+            },
+            bookFilter: "book/filter"
         };
     })();
 

@@ -3,6 +3,8 @@
     var view = require("core/mvc/view");
 
     var topic_center = require("topic/topic_center");
+    var cache_service = require("service/cache_service");
+    var constant = require("config/constant");
     var util = require("util/util");
 
     var gallery = require("widget/gallery/gallery");
@@ -45,21 +47,25 @@
             var g = new gallery(this.$el.find(".j-subject-content"), {galleryClass: "subject-gallery"});
             g.start(data);
             this.$el.find(".j-all-link").click(function() {
+                cache_service.add(constant.bookFilter, "all");
                 g.filter(self.$el.find(".j-gallery-item"));
                 $(".sub-page-top-menue .tab a").removeClass("active");
                 $(this).addClass("active");
             });
             this.$el.find(".j-escape-link").click(function() {
+                cache_service.add(constant.bookFilter, "escape");
                 g.filter(self.$el.find("[data-type='escape']"));
                 $(".sub-page-top-menue .tab a").removeClass("active");
                 $(this).addClass("active");
             });
             this.$el.find(".j-detective-link").click(function() {
+                cache_service.add(constant.bookFilter, "detective");
                 g.filter(self.$el.find("[data-type='detective']"));
                 $(".sub-page-top-menue .tab a").removeClass("active");
                 $(this).addClass("active");
             });
             this.$el.find(".j-rpg-link").click(function() {
+                cache_service.add(constant.bookFilter, "rpg");
                 g.filter(self.$el.find("[data-type='rpg']"));
                 $(".sub-page-top-menue .tab a").removeClass("active");
                 $(this).addClass("active");

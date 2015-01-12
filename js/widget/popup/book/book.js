@@ -3,6 +3,7 @@
     var template = require("gen/template");
     var cacheService = require("service/cache_service");
     var config = require("config/config");
+    var constant = require("config/constant");
     var TRANSFORM = require("util/browser_adaptor");
 
     var animationing = false;
@@ -10,6 +11,7 @@
     module.exports = function(el, options) {
         var cacheServiceDataPath = config.apiPath.loadSubjectData;
         var currentId = "";
+        var currentObj = {};
         var itemLength = 0;
         var tpl = {
             tpl_book: "tpl_book",
@@ -27,8 +29,11 @@
         };
 
         var __renderPage = function(arrow) {
-            var newLeft = $(template(tpl.tpl_book_left_part, cacheService.get(cacheServiceDataPath)[currentId])).addClass('j-new-page');
-            var newRight = $(template(tpl.tpl_book_right_part, cacheService.get(cacheServiceDataPath)[currentId])).addClass('j-new-page');
+            if(!currentObj.id) {
+                currentObj = cacheService.get(cacheServiceDataPath)[currentId];
+            }
+            var newLeft = $(template(tpl.tpl_book_left_part, currentObj)).addClass('j-new-page');
+            var newRight = $(template(tpl.tpl_book_right_part, currentObj)).addClass('j-new-page');
             var oldLeft = $(".j-book-content").find(".j-book-left-part").removeClass('j-new-page');
             var oldRight = $(".j-book-content").find(".j-book-right-part").removeClass('j-new-page');
             if(arrow > 0) {
@@ -64,31 +69,59 @@
         };
 
         var __renderPrev = function() {
-            currentId = __findPrev();
+            currentObj = __findPrev();
+            currentId = currentObj.id;
             __renderPage(-1);
         };
 
         var __renderNext = function() {
-            currentId = __findNext();
+            currentObj = __findNext();
+            currentId = currentObj.id;
             __renderPage(1);
         };
 
         var __findPrev = function() {
-            var index = cacheIdToIndex[currentId];
-            if(index == 0) {
-                return cacheIndexToId[itemLength  - 1];
-            } else {
-                return cacheIndexToId[index - 1];
-            }
+            var filterData = _getFilterData();
+            var prevObj = {};
+            $.each(filterData, function(index, item) {
+                if(item.id === currentId) {
+                    if(index == 0) {
+                        prevObj = filterData[filterData.length  - 1];
+                    } else {
+                        prevObj = filterData[index - 1];
+                    }
+                }
+            });
+            return prevObj;
         };
 
         var __findNext = function() {
-            var index = cacheIdToIndex[currentId];
-            if(index == itemLength - 1) {
-                return cacheIndexToId[0];
-            } else {
-                return cacheIndexToId[index + 1];
+            var filterData = _getFilterData();
+            var nextObj = {};
+            $.each(filterData, function(index, item) {
+                if(item.id === currentId) {
+                    if(index == filterData.length - 1) {
+                        nextObj = filterData[0];
+                    } else {
+                        nextObj = filterData[index + 1];
+                    }
+                }
+            });
+            return nextObj;
+        };
+
+        var _getFilterData = function() {
+            var bookFilterType = cacheService.get(constant.bookFilter);
+            if(bookFilterType === 'all') {
+                return cacheService.get(cacheServiceDataPath);
             }
+            var filterData = [];
+            $.each(cacheService.get(cacheServiceDataPath), function(index, item) {
+                if(item.type === bookFilterType) {
+                    filterData.push(item);
+                }
+            });
+            return filterData;
         };
 
         var _addToCache = function(index, item) {
@@ -104,6 +137,7 @@
         };
 
         var _open = function(item) {
+            animationing = false;
             currentId = $(item).attr("data-id");
             $(".j-takagism-wrapper").append(template(tpl.tpl_book, {data: cacheService.get(cacheServiceDataPath)[currentId]}));
             _changeImgSize();
