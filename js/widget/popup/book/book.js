@@ -21,13 +21,6 @@
         var cacheIndexToId = {};
         var cacheIdToIndex = {};
 
-        var __removeOldPage = function(callback, oldLeft, oldRight) {
-            callback(function() {
-                oldLeft.remove();
-                oldRight.remove();
-            }, oldLeft, oldRight);
-        };
-
         var __renderPage = function(arrow) {
             if(!currentObj.id) {
                 currentObj = cacheService.get(cacheServiceDataPath)[currentId];
@@ -37,20 +30,19 @@
             var oldLeft = $(".j-book-content").find(".j-book-left-part").removeClass('j-new-page');
             var oldRight = $(".j-book-content").find(".j-book-right-part").removeClass('j-new-page');
             if(arrow > 0) {
-                newLeft.css("-moz-transform", "rotateY(180deg)");
+                newLeft.css(TRANSFORM, "rotateY(180deg)");
                 oldRight.before(newRight);
                 oldLeft.after(newLeft);
                 oldRight.addClass('rotating');
-                __removeOldPage(function (removeFunc, oldLeft, oldRight) {
+                setTimeout(function () {
                     oldRight.css(TRANSFORM, 'rotateY(-180deg)');
                     newLeft.css(TRANSFORM, 'rotateY(0deg)');
                     setTimeout(function () {
                         oldLeft.remove();
                         oldRight.remove();
                         animationing = false;
-                        //removeFunc();
                     }, 1200);
-                }, oldLeft, oldRight);
+                });
             } else {
                 newRight.css(TRANSFORM, "rotateY(-180deg)");
                 oldLeft.before(newRight).before(newLeft);
