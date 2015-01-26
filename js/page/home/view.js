@@ -12,7 +12,7 @@
     module.exports = view.extend({
         tpl: {
             tpl_home: "tpl_home",
-            tpl_popup_picture_item: "tpl_popup_picture_item"
+            tpl_popup_acticle_item: "tpl_popup_acticle_item"
         },
         render: function() {
             this.flowController();
@@ -62,12 +62,12 @@
                 currentItem.hide();
                 nextItem.css("display", "block");
             });
-            new gallery(this.$el.find(".j-home-wrapper"), {children: ".j-home-main-list"}).start();
+            new gallery(this.$el.find(".j-home-wrapper"), {children: ".j-home-main-list",scale:1.5}).start();
             new generalPopup(this.$el.find(".home-gallery"), {
-                tpl_popup_content_item: this.tpl.tpl_popup_picture_item,
+                tpl_popup_content_item: this.tpl.tpl_popup_acticle_item,
                 cacheServiceDataPath: config.apiPath.loadHomeData,
                 childrenSelector: ".j-gallery-item-home",
-                customClass: "picture-popup"
+                customClass: "article-popup"
             });
         },
         showMsg: function() {
