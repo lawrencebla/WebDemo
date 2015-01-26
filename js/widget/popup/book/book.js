@@ -37,7 +37,7 @@
             var oldLeft = $(".j-book-content").find(".j-book-left-part").removeClass('j-new-page');
             var oldRight = $(".j-book-content").find(".j-book-right-part").removeClass('j-new-page');
             if(arrow > 0) {
-                newLeft.css(TRANSFORM, "rotateY(180deg)");
+                newLeft.css("-moz-transform", "rotateY(180deg)");
                 oldRight.before(newRight);
                 oldLeft.after(newLeft);
                 oldRight.addClass('rotating');
@@ -112,12 +112,9 @@
 
         var _getFilterData = function() {
             var bookFilterType = cacheService.get(constant.bookFilter);
-            if(bookFilterType === 'all') {
-                return cacheService.get(cacheServiceDataPath);
-            }
             var filterData = [];
             $.each(cacheService.get(cacheServiceDataPath), function(index, item) {
-                if(item.type === bookFilterType) {
+                if(bookFilterType === 'all' || item.type === bookFilterType) {
                     filterData.push(item);
                 }
             });

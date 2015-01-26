@@ -46,6 +46,7 @@
             var self = this;
             var g = new gallery(this.$el.find(".j-subject-content"), {galleryClass: "subject-gallery"});
             g.start(data);
+            cache_service.add(constant.bookFilter, "all");
             this.$el.find(".j-all-link").click(function() {
                 cache_service.add(constant.bookFilter, "all");
                 g.filter(self.$el.find(".j-gallery-item"));
