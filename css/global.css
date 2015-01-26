@@ -306,6 +306,8 @@ a,input{
 .summary-animation-scroll {
 	padding: 66px;
 	line-height: 40px;
+	width: 540px;
+	margin: 0 auto;
 	font-size: 18px;
 	text-align: left;
 	text-indent: 2em;
