@@ -17,7 +17,7 @@
     module.exports = view.extend({
         tpl: {
             tpl_art: "tpl_art",
-            tpl_popup_picture_item: "tpl_popup_picture_item"
+            tpl_popup_acticle_item: "tpl_popup_acticle_item"
         },
         render: function() {
             this.flowController();
@@ -65,10 +65,10 @@
             new gallery(this.$el.find("#" + params.tabId), {galleryClass: "art-gallery"}).start(data);
             var options = {};
             new generalPopup(this.$el.find(".art-gallery"), {
-                tpl_popup_content_item: this.tpl.tpl_popup_picture_item,
+                tpl_popup_content_item: this.tpl.tpl_popup_acticle_item,
                 cacheServiceDataPath: url.addParameters(config.apiPath.loadArtData, "type", params.type),
                 childrenSelector: ".j-gallery-item",
-                customClass: "picture-popup"
+                customClass: "article-popup"
             });
         },
         showMsg: function() {
