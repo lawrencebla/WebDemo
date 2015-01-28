@@ -16,6 +16,7 @@
 
         var __renderPage = function(arrow) {
             $(".j-popup-content").find(".j-popup-content-item").html(template(options.tpl_popup_content_item, cacheService.get(options.cacheServiceDataPath)[currentId]));
+            _changeImgSize();
         };
 
         var __renderPrev = function() {
@@ -63,7 +64,6 @@
                 currentId = $(item).attr("data-id");
                 $(".j-takagism-wrapper").append(template(tpl.tpl_popup_general, {customClass: options.customClass}));
                 __renderPage(1);
-                _changeImgSize();
 
                 $(".j-popup-content").find(".j-prev-button").click(function () {
                     __renderPrev();
@@ -93,7 +93,7 @@
         };
 
         var _changeImgSize = function() {
-            el.find(".j-popup-general-content-img").height($(window).height());
+            $(".j-popup-content").find(".j-popup-general-content-img").height($(window).height() * 0.7);
         };
 
         $(window).resize(function() {

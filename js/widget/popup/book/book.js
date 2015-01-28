@@ -34,6 +34,7 @@
                 oldRight.before(newRight);
                 oldLeft.after(newLeft);
                 oldRight.addClass('rotating');
+                _changeImgSize();
                 setTimeout(function () {
                     oldRight.css(TRANSFORM, 'rotateY(-180deg)');
                     newLeft.css(TRANSFORM, 'rotateY(0deg)');
@@ -46,6 +47,7 @@
             } else {
                 newRight.css(TRANSFORM, "rotateY(-180deg)");
                 oldLeft.before(newRight).before(newLeft);
+                _changeImgSize();
 
                 setTimeout(function () {
                     oldLeft.css(TRANSFORM, 'rotateY(180deg)');
@@ -166,7 +168,7 @@
         };
 
         var _changeImgSize = function() {
-           // $(".j-book-content .j-book-left-img").height($(window).height());
+            $(".j-book-content .j-book-left-img").height($(window).height() * 0.65);
         };
 
         $(window).resize(function() {
